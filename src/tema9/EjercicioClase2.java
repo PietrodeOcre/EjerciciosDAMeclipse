@@ -11,7 +11,7 @@ package tema9;
  */
 public class EjercicioClase2 {
     public static void main(String[] args) {
-        
+        System.out.println("holamundo");
     }
     
     
