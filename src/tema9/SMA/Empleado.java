@@ -18,12 +18,12 @@ public abstract class Empleado {
 		empleado = null;
 	}
 	
-	public Empleado(String dni, String nombre, String apellido, int fechaIngreso, Empleado[] empleado) {
+	public Empleado(String dni, String nombre, String apellido, int fechaIngreso) {
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.anioIngreso = fechaIngreso;
-		this.empleado = empleado;
+		
 	}
 
 	public String getDni() {

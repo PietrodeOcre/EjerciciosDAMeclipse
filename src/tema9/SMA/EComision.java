@@ -14,8 +14,8 @@ public class EComision extends Empleado{
 		facturadoPorCliente = 0.0;
 	}
 	
-	public EComision(String dni, String nombre, String apellido, int fechaIngreso, Empleado[] empleado, int clientesCaptados, double facturadoPorCliente) {
-		super(dni,nombre,apellido,fechaIngreso,empleado);
+	public EComision(String dni, String nombre, String apellido, int fechaIngreso, int clientesCaptados, double facturadoPorCliente) {
+		super(dni,nombre,apellido,fechaIngreso);
 		this.clientesCaptados = clientesCaptados;
 		this.facturadoPorCliente = facturadoPorCliente;
 	}

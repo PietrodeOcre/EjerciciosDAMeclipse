@@ -13,8 +13,8 @@ public class EAsalariado extends Empleado{
 		salarioBase = 0.0;
 	}
 	
-	public EAsalariado(String dni, String nombre, String apellido, int fechaIngreso, Empleado[] empleado, double salarioBase) {
-		super(dni, nombre, apellido, fechaIngreso, empleado);
+	public EAsalariado(String dni, String nombre, String apellido, int fechaIngreso, double salarioBase) {
+		super(dni, nombre, apellido, fechaIngreso);
 		this.salarioBase = salarioBase;
 	}
 
