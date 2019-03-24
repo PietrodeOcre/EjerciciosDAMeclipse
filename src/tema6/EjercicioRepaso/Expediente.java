@@ -56,7 +56,8 @@ public class Expediente implements Cloneable{
     }
     
     //equals
-    @Override
+    @SuppressWarnings("unlikely-arg-type")
+	@Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -68,7 +69,8 @@ public class Expediente implements Cloneable{
     }
     
     //finalize
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     protected void finalize() throws Throwable {
         super.finalize(); //To change body of generated methods, choose Tools | Templates.
     }
