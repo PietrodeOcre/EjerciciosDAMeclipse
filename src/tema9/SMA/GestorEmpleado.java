@@ -34,10 +34,6 @@ public class GestorEmpleado {
 		int empMayor = 0; double salarioMayor = 0;
         for (int i = 0; i < empleado.length; i++){
             try{
-            	//if (empleado[i].getAnioIngreso() < 0 ) {
-            		//throw new Exception("Años Negativos no funcionan");
-            	//}
-            	
                 if (empleado[i].obtenerSalario() > salarioMayor){
                     empMayor = i;
                     salarioMayor = empleado[i].obtenerSalario();

@@ -75,9 +75,9 @@ public class EAsalariado extends Empleado{
 	}
 
 	@Override
-	public double obtenerSalario() {
-		Date ahora = new Date();
-        int actualAnio = ahora.getYear();
+	public double obtenerSalario() {	
+		Calendar ahora = Calendar.getInstance();
+        int actualAnio = ahora.get(Calendar.YEAR);
         int anios = actualAnio - getAnioIngreso(); 
         if (anios<0){
             System.out.println("Error: número de años negativo");
