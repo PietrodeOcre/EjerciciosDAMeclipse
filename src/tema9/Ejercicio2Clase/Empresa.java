@@ -42,8 +42,8 @@ public class Empresa implements Cloneable{
 	public void setEmpleado(Empleado[] empleado) {
 		this.empleado = empleado;
 	}
-	public LocalDate getFechaDeAlta() {
-		return fechaDeAlta.format(DateTimeFormatter.ofPattern("dd/mm/yyyy"));
+	public String getFechaDeAlta() {
+		return fechaDeAlta.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 	}
 	public void setFechaDeAlta(LocalDate fechaDeAlta) {
 		this.fechaDeAlta = fechaDeAlta;
@@ -74,7 +74,7 @@ public class Empresa implements Cloneable{
 	@Override
 	public String toString() {
 		return "Empresa [id=" + id + ", nombre=" + nombre + ", empleado=" + Arrays.toString(empleado) + ", fechaDeAlta="
-				+ fechaDeAlta.toString() + "]";
+				+ getFechaDeAlta() + "]";
 	}
 	
 	
