@@ -2,6 +2,7 @@ package tema9.Ejercicio2Clase;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.StringTokenizer;
 
 public class Empleado extends Persona implements Cloneable, Comparable<Empleado>{
 	
@@ -61,6 +62,16 @@ public class Empleado extends Persona implements Cloneable, Comparable<Empleado>
 			return res;
 		}
 	
-	
+		public String obtieneNombrePorAlmohadilla() {
+			
+			String cadena = "";
+			StringTokenizer nombres = new StringTokenizer(cadena,"#");
+			
+			//for (int i = 0; i < array.length; i++) {
+				
+			//}
+			
+			return cadena;
+		}
 	
 }
