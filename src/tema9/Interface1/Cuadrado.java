@@ -8,11 +8,8 @@ package tema9.Interface1;
 
 public class Cuadrado implements PoligonoRegular{
 	
-	public Cuadrado() {
-		
-	}
-	
 	public Cuadrado(int longiLados) {
+		super();
 		getLongitudLados(longiLados);
 	}
 

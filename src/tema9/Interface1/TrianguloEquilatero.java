@@ -1,13 +1,24 @@
 package tema9.Interface1;
 
+/*
+ * Crea una clase TrianguloEquilatero que implemente 
+ * la interfaz. El método getNumLados retornará 3 y 
+ * getLongitudLados devolverá un valor que será 
+ * establecido en el constructor.
+ */
+
 public class TrianguloEquilatero implements PoligonoRegular{
-	
-	public TrianguloEquilatero() {
-		
+	float longiLados;
+	public TrianguloEquilatero(int longiLados) {
+		super();
+		getLongitudLados(longiLados);
+		this.longiLados = longiLados;
 	}
 	
-	public TrianguloEquilatero(int longiLados) {
-		getLongitudLados(longiLados);
+	
+
+	public float getLongiLados1() {
+		return longiLados;
 	}
 
 	@Override
