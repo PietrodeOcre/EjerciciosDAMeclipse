@@ -51,9 +51,9 @@ public class Empleado extends Persona implements Cloneable, Comparable<Empleado>
 		@Override
 		public int compareTo(Empleado obj) {
 			int res = 0;
-			if(this.id < obj.getId()) {
+			if(this.id > obj.getId()) {
 				res = -1;
-			}else if (this.id > obj.getId()){
+			}else if (this.id < obj.getId()){
 				res = 1;
 			}else {
 				res = 0;
