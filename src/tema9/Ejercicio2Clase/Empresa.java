@@ -13,12 +13,12 @@ public class Empresa implements Cloneable{
 	private static int id1 = 0;
 	private int id;
 	private String nombre;
-	private Empleado[] empleado;
+	private Persona[] empleado;
 	private LocalDate fechaDeAlta;
 	
 	
 	//Constructor
-	public Empresa(String nombre, Empleado[] empleado) {
+	public Empresa(String nombre, Persona[] empleado) {
 		this.id = id1++;
 		this.nombre = nombre;
 		this.empleado = empleado;
@@ -36,10 +36,10 @@ public class Empresa implements Cloneable{
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public Empleado[] getEmpleado() {
+	public Persona[] getEmpleado() {
 		return empleado;
 	}
-	public void setEmpleado(Empleado[] empleado) {
+	public void setEmpleado(Persona[] empleado) {
 		this.empleado = empleado;
 	}
 	public String getFechaDeAlta() {
@@ -54,7 +54,7 @@ public class Empresa implements Cloneable{
 	@Override
 	protected Object clone() throws CloneNotSupportedException {
 		Empresa empresa = (Empresa)super.clone();
-        empresa.empleado = (Empleado[])this.empleado.clone();
+        empresa.empleado = (Persona[])this.empleado.clone();
         return empresa;
 	}
 
@@ -76,7 +76,6 @@ public class Empresa implements Cloneable{
 		return "Empresa [id=" + id + ", nombre=" + nombre + ", empleado=" + Arrays.toString(empleado) + ", fechaDeAlta="
 				+ getFechaDeAlta() + "]";
 	}
-	
 	
 	
 	

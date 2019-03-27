@@ -3,19 +3,17 @@ package tema9.Ejercicio2Clase;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Empleado implements Cloneable{
+public class Empleado extends Persona implements Cloneable, Comparable<Empleado>{
 	
 	//Atributos
 	private static int id1 = 0;
 	private int id;
-	private String nombre;
-	private LocalDate fechaNacimiento;
 	
 	//Constructor
 	public Empleado(String nombre) {
+		super(nombre);
 		this.id = id1++;
-		this.nombre = nombre;
-		this.fechaNacimiento = LocalDate.now();
+		
 	}
 	
 	//Getters and Setters
@@ -25,19 +23,7 @@ public class Empleado implements Cloneable{
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public String getFechaNacimiento() {
-		return fechaNacimiento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-	}
-	public void setFechaNacimiento(LocalDate fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
-	}
-
+	
 	@Override
 	protected Object clone() throws CloneNotSupportedException {
 		Empleado empleado = (Empleado)super.clone();
@@ -61,7 +47,19 @@ public class Empleado implements Cloneable{
 	}
 	
 	
-	
+	//compareTo
+		@Override
+		public int compareTo(Empleado obj) {
+			int res = 0;
+			if(this.id < obj.getId()) {
+				res = -1;
+			}else if (this.id > obj.getId()){
+				res = 1;
+			}else {
+				res = 0;
+			}
+			return res;
+		}
 	
 	
 	
