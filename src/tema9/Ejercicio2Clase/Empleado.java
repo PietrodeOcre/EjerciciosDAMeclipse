@@ -24,6 +24,9 @@ public class Empleado extends Persona implements Cloneable, Comparable<Empleado>
 	public void setId(int id) {
 		this.id = id;
 	}
+	public String getNombre() {
+		return this.nombre;
+	}
 	
 	@Override
 	protected Object clone() throws CloneNotSupportedException {
@@ -62,16 +65,6 @@ public class Empleado extends Persona implements Cloneable, Comparable<Empleado>
 			return res;
 		}
 	
-		public String obtieneNombrePorAlmohadilla() {
-			
-			String cadena = "";
-			StringTokenizer nombres = new StringTokenizer(cadena,"#");
-			
-			//for (int i = 0; i < array.length; i++) {
-				
-			//}
-			
-			return cadena;
-		}
+		
 	
 }

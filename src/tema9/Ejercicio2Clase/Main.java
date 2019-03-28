@@ -5,11 +5,11 @@ import java.util.Arrays;
 public class Main {
 
 	public static void main(String[] args) {
-		Persona[] listaEmpleado = new Persona[3];
+		Empleado[] listaEmpleado = new Empleado[3];
 		
-		listaEmpleado[0] = new Empleado("Manuel");
-		listaEmpleado[1] = new Empleado("Javier");
-		listaEmpleado[2] = new Empleado("Carlos");
+		listaEmpleado[0] = new Empleado("manuel javier");
+		listaEmpleado[1] = new Empleado("javier");
+		listaEmpleado[2] = new Empleado("carlos");
 		
 		Arrays.sort(listaEmpleado);
 		
@@ -31,6 +31,12 @@ public class Main {
 		
 		System.out.println(empresa.toString());
 		System.out.println(empresa2.toString());
+		System.out.println("");
+		
+		System.out.println(empresa.obtieneNombrePorAlmohadilla(listaEmpleado));
+		
+		empresa.imprimeCadenaEspecial(empresa.obtieneNombrePorAlmohadilla(listaEmpleado));
+		
 	}
 	
 }
