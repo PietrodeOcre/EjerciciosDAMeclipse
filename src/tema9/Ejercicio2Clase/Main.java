@@ -4,14 +4,18 @@ import java.util.Arrays;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IllegalArgumentException{
 		Empleado[] listaEmpleado = new Empleado[3];
 		
 		listaEmpleado[0] = new Empleado("manuel javier");
 		listaEmpleado[1] = new Empleado("javier");
 		listaEmpleado[2] = new Empleado("carlos");
 		
-		Arrays.sort(listaEmpleado);
+		try {
+			Arrays.sort(listaEmpleado);
+		}catch(NullPointerException e) {
+			
+		}
 		
 		Empresa empresa = new Empresa("Nuker-Labs", listaEmpleado);
 		
@@ -33,11 +37,20 @@ public class Main {
 		System.out.println(empresa2.toString());
 		System.out.println("");
 		
-		System.out.println(empresa.obtieneNombrePorAlmohadilla(listaEmpleado));
+		try {
+			System.out.println(empresa.obtieneNombrePorAlmohadilla(listaEmpleado));
+			
+			empresa.imprimeCadenaEspecial(empresa.obtieneNombrePorAlmohadilla(listaEmpleado));
+			
+			empresa.gestionaExcepcionesCadena(empresa.obtieneNombrePorAlmohadilla(listaEmpleado));
+			
+		}catch(NullPointerException e) {
 		
-		empresa.imprimeCadenaEspecial(empresa.obtieneNombrePorAlmohadilla(listaEmpleado));
+		}
 		
-		//gestionaExcepcionesCadena();
+		
+		
+		//empresa.gestionaExcepcionesCadena(empresa.obtieneNombrePorAlmohadilla(listaEmpleado));
 		
 	}
 	

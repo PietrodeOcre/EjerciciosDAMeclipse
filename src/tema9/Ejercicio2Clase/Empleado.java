@@ -1,6 +1,6 @@
 package tema9.Ejercicio2Clase;
 
-public class Empleado extends Persona implements Cloneable, Comparable<Empleado>{
+public class Empleado extends Persona implements Cloneable, Comparable<Empleado> {
 	
 	//Atributos
 	private static int id1 = 0;
@@ -61,6 +61,7 @@ public class Empleado extends Persona implements Cloneable, Comparable<Empleado>
 			return res;
 		}
 	
+		
 		
 	
 }

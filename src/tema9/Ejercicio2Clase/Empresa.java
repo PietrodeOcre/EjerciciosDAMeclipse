@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Empresa implements Cloneable{
+public class Empresa implements Cloneable {
 
 	//Atributos
 	private static int id1 = 0;
@@ -83,6 +83,7 @@ public class Empresa implements Cloneable{
 		for (int i = 0; i < empleado.length; i++) {
 			
 			cadena +=empleado[i].getNombre()+((i!= empleado.length-1)?"#":"");
+			
 		}
 		
 		return cadena;
@@ -138,6 +139,19 @@ public class Empresa implements Cloneable{
 
 	}
 	
-	
+	public void gestionaExcepcionesCadena(String cadena) throws IllegalArgumentException{
+
+		StringTokenizer nombre = new StringTokenizer(cadena, "#");
+
+		if (nombre.countTokens() > 2) {
+			try {
+				throw new HayMasDe2TokensException("Error en el sistema");
+			} catch (HayMasDe2TokensException e) {
+				System.out.println(e.getMessage());
+			}
+		}else if(nombre.countTokens() <= 2) {
+			throw new IllegalArgumentException();
+		}
+	}
 
 }

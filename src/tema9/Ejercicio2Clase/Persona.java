@@ -3,7 +3,7 @@ package tema9.Ejercicio2Clase;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Persona {
+public class Persona extends Exception{
 
 	protected String nombre;
 	protected LocalDate fechaNacimiento;
