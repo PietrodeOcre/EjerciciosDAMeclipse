@@ -53,7 +53,7 @@ public class Empresa implements Cloneable{
 	@Override
 	protected Object clone() throws CloneNotSupportedException {
 		Empresa empresa = (Empresa)super.clone();
-        empresa.empleado = (Empleado[])this.empleado.clone();
+        empresa.empleado = (Empleado[])empresa.empleado.clone();
         return empresa;
 	}
 
@@ -79,18 +79,10 @@ public class Empresa implements Cloneable{
 	public String obtieneNombrePorAlmohadilla(Empleado[] empleado) {
 		
 		String cadena = "";
-		
-		StringTokenizer nombre = new StringTokenizer(cadena, " ");
-		String cad = "";
-		while(nombre.hasMoreTokens()) {
-			cad = nombre.nextToken().toString();
-			cadena+=cad.substring(0, 1).toUpperCase()+cad.substring(1,cad.length());
-		}
-		
-		//System.out.println(cad);
-			
+
 		for (int i = 0; i < empleado.length; i++) {
-			cadena +=empleado[i].getNombre().substring(0, 1).toUpperCase()+empleado[i].getNombre().substring(1,empleado[i].getNombre().length())+((i!= empleado.length-1)?"#":"");
+			
+			cadena +=empleado[i].getNombre()+((i!= empleado.length-1)?"#":"");
 		}
 		
 		return cadena;
@@ -99,35 +91,53 @@ public class Empresa implements Cloneable{
 	
 	public void imprimeCadenaEspecial(String cadena) {
 		
-		//System.out.println(cadena);
+		String cadenaFin = "";
 		
 		StringTokenizer nombre = new StringTokenizer(cadena,"#");
 		
-		cadena = nombre.nextToken()+" ";
+		String cadena2 = nombre.nextToken()+" ";
 		
 		while(nombre.hasMoreTokens()) {
-			cadena += nombre.nextToken()+" ";
+			
+			cadena2 += nombre.nextElement()+" ";
+				
 		}
+		
+		String[] cadena3 = null;
+		
+		StringTokenizer nombre2 = new StringTokenizer(cadena2," ");
+		
+		cadena3 = new String[nombre2.countTokens()];
+		
+		while(nombre2.hasMoreTokens()) {
+			
+			for (int x = 0; x < nombre2.countTokens(); x++) {
+				
+				cadena3[x] = nombre2.nextToken();
+				cadena3[x] = cadena3[x].replaceAll("[aeiouAEIOU]", "");
 
-		StringBuffer stb = new StringBuffer();
-
-		stb.append(cadena.replaceAll("e", ""));
-		
-		System.out.println(stb.toString());
-		
-		for(int i=0; i<stb.length(); i++){
-            if(stb.charAt(i) == 'a' ||
-                    stb.charAt(i) == 'e' ||
-                    stb.charAt(i) == 'i' ||
-                    stb.charAt(i) == 'o' ||
-                    stb.charAt(i) == 'u' 
-                    ){
-                stb.deleteCharAt(i);
-            }
-        }
-		
-        System.out.println(stb);
+				for (int i = 0; i < cadena3[x].length(); i++) {
+					
+					if (i%2==0 || i==0) {
+						
+						cadenaFin += cadena3[x].substring(i, i+1).toUpperCase();
+						
+					}else {
+						
+						cadenaFin += cadena3[x].substring(i, i+1).toLowerCase();
+					}
+					
+				}
+				cadenaFin += " ";
+				
+			}
 	
+		}
+			
+		System.out.println(cadenaFin);
+
 	}
+	
+	
 
 }

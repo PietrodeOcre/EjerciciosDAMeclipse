@@ -1,9 +1,5 @@
 package tema9.Ejercicio2Clase;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.StringTokenizer;
-
 public class Empleado extends Persona implements Cloneable, Comparable<Empleado>{
 	
 	//Atributos

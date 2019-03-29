@@ -8,7 +8,9 @@ package tema9.Interface1;
 
 public class Cuadrado implements PoligonoRegular{
 	
-	public Cuadrado(int longiLados) {
+	private float longiLados;
+	
+	public Cuadrado(float longiLados) {
 		super();
 		getLongitudLados(longiLados);
 	}
@@ -31,6 +33,20 @@ public class Cuadrado implements PoligonoRegular{
 	
 	public float getInteriorAngle(float longiLados) {
 		return ((longiLados-2)*PI/longiLados);
+	}
+
+	/**
+	 * @return the longiLados
+	 */
+	public float getLongiLados() {
+		return longiLados;
+	}
+
+	/**
+	 * @param longiLados the longiLados to set
+	 */
+	public void setLongiLados(float longiLados) {
+		this.longiLados = longiLados;
 	}
 
 }

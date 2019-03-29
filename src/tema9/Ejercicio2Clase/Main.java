@@ -37,6 +37,8 @@ public class Main {
 		
 		empresa.imprimeCadenaEspecial(empresa.obtieneNombrePorAlmohadilla(listaEmpleado));
 		
+		//gestionaExcepcionesCadena();
+		
 	}
 	
 }

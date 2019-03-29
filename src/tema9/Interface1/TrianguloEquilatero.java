@@ -9,7 +9,7 @@ package tema9.Interface1;
 
 public class TrianguloEquilatero implements PoligonoRegular{
 	float longiLados;
-	public TrianguloEquilatero(int longiLados) {
+	public TrianguloEquilatero(float longiLados) {
 		super();
 		getLongitudLados(longiLados);
 		this.longiLados = longiLados;
