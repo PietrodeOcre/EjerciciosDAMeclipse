@@ -128,6 +128,7 @@ public class Empresa implements Cloneable {
 						cadenaFin += cadena3[x].substring(i, i+1).toLowerCase();
 					}
 					
+					
 				}
 				cadenaFin += " ";
 				
@@ -137,6 +138,10 @@ public class Empresa implements Cloneable {
 			
 		System.out.println(cadenaFin);
 
+	}
+	
+	public void hola() {
+		System.out.println("Hola Mundo!");
 	}
 	
 	public void gestionaExcepcionesCadena(String cadena) throws IllegalArgumentException{
