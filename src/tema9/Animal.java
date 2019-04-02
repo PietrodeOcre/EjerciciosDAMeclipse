@@ -48,6 +48,12 @@ public class Animal {
         this.edad = edad;
         this.fecha = fecha;
     }
+
+	@Override
+	public String toString() {
+		return "Animal [nombre=" + nombre + ", edad=" + edad + ", fecha=" + fecha + "]";
+	}
+    
     
    /* private static int calculoProximaVacunacion(){
         //LocalDate fechaMesSiguiente = new LocalDate.parse("01/"+fecha.getMonthValue()+"/"+fecha.getYear(),DateTimeFormatter.ofPattern("dd/MM/yyyy"));
