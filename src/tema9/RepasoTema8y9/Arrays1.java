@@ -1,6 +1,8 @@
 package tema9.RepasoTema8y9;
 
-public class Arrays {
+import java.util.Arrays;
+
+public class Arrays1 {
 	
 	public static void main(String[] args) {
 		
@@ -10,7 +12,21 @@ public class Arrays {
 	
 		//System.out.println(todosIguales(array2));
 		//System.out.println(todosDistintos(array));
-		System.out.println(matrizSimetricaIgual(matriz));
+		//System.out.println(matrizSimetricaIgual(matriz));
+		System.out.println(Arrays.toString(sumaFilasMatrizSimetrica(matriz)));
+		
+		
+	
+	}
+	
+	public static int[] sumaFilasMatrizSimetrica(int[][] matriz){
+		int []array = new int[matriz[0].length];		
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				array[j] +=  matriz[i][j];
+			}
+		}
+		return array;
 	}
 	
 	public static boolean matrizSimetricaIgual(int[][] matriz) {
