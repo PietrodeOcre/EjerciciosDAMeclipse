@@ -1272,4 +1272,44 @@ public class Libreria {
         peque = array[0];
         System.out.println("El más pequeño es " + peque + " y el más grande es " + grande);
     }
+    
+    public static boolean matrizSimetricaIgual(int[][] matriz) {
+		boolean dist = true;
+		boolean dist2 = false;
+		int valor1 = matriz[0][0];
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				if (valor1 != matriz[i][j]) {
+					dist = false;
+				}
+				if (matriz.length == matriz[0].length) {
+					dist2 = true;
+				}
+			}
+		}
+		boolean resp = (((dist) && (dist2)) ? true : false);
+		return resp;
+	}
+	
+	public static boolean todosDistintos(int[] array) {
+
+		for (int i = 0; i < array.length; i++) {
+			for (int j = i+1; j < array.length-1; j++) {
+				if (array[i] == array[j]) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	public static boolean todosIguales(int[] array) {
+		
+		for (int i = 1; i < array.length; i++) {
+			if (array[0] != array[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
 }
