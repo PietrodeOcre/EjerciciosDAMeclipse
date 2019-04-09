@@ -3,6 +3,8 @@ package tema10.Ejercicios;
 import java.util.HashSet;
 import java.util.Scanner;
 
+import tema7.Ejercicio1.ejercicio2Array;
+
 public class EjercicioClase {
 	
 	public static void main(String[] args) {
@@ -22,7 +24,7 @@ public class EjercicioClase {
 			System.out.println(cadenasNombre.size());
 			cont--;
 		} while (cont > 0);
-		
+		/*
 		Scanner cs3 = new Scanner(System.in);
 		int num = cs3.nextInt();
 		String[] par_izq = new String[num];
@@ -37,6 +39,9 @@ public class EjercicioClase {
 			set.add(par_izq[i]+" "+par_der[i]);
 			System.out.println(set.size());
 		}
+		*/
+		
+
 		
 	}
 	
