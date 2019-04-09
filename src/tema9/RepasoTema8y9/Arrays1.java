@@ -9,15 +9,46 @@ public class Arrays1 {
 		int[] array = {3,5,4,2,7,3};
 		int[] array2 = {2,2,2,2,2,2};
 		int[][] matriz = {{1,4,1},{1,1,1},{1,1,1}};
+		 
 	
 		//System.out.println(todosIguales(array2));
 		//System.out.println(todosDistintos(array));
 		//System.out.println(matrizSimetricaIgual(matriz));
-		System.out.println(Arrays.toString(sumaFilasMatrizSimetrica(matriz)));
-		
+		//System.out.println(Arrays.toString(sumaFilasMatrizSimetrica(matriz)));
+		creaPiramide();
 		
 	
 	}
+	
+	public static void creaPiramide() {
+		int[][] matriz = new int[7][14];
+		int mitadVector = (matriz[0].length/2)-1;
+		int adelante = mitadVector;
+		for (int j = 0; j < (matriz.length); j++) {
+			for (int i = 0; i < ((matriz[j].length)-1); i++) {
+
+				if (j == 0 && i == mitadVector) {
+					matriz[j][i] = 3;
+				} 
+				if(j>0 && i == --mitadVector || j>0 && i == ++mitadVector){
+					matriz[j][i] = 3;
+				}	
+				if(j>0 && i == adelante) {
+					matriz[j][i] = 3;
+				}
+			}
+			adelante++;
+		}
+		
+		for (int j = 0; j < (matriz.length); j++) {
+			for (int i = 0; i < (matriz[j].length-1); i++) {
+				System.out.print(matriz[j][i]);
+			}
+			System.out.println("");
+		}
+	}
+	
+	
 	
 	public static int[] sumaFilasMatrizSimetrica(int[][] matriz){
 		int []array = new int[matriz[0].length];		
