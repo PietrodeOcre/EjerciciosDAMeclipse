@@ -46,6 +46,10 @@ public class Empleado {
 		return true;
 	}
 	
+	/*public boolean equals(Object obj) {
+		if(obj instanceof Empleado)
+	}*/
+	
 	//ToString
 	@Override
 	public String toString() {

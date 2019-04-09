@@ -21,8 +21,9 @@ public class Principal {
 		hset.add(empleado4);
 		hset.add(empleado5);
 		
-		System.out.println(hset);
-		
+		for(Empleado emp: hset) {
+			System.out.println(emp);
+		}
 		
 		
 	}
