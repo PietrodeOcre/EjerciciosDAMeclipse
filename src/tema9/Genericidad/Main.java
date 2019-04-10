@@ -19,6 +19,14 @@ public class Main {
     Jaula<Leon> jaula1=new Jaula<Leon>();
     
     jaula1.Encerrar(leon1);
-        System.out.println((jaula1.libera(leon1)));
-            }
+        //System.out.println((jaula1.libera(leon1)));
+            
+    
+    Caja<Leon> caja1 = new Caja<Leon>();
+    
+    caja1.pon(leon1);
+    
+    System.out.println(caja1.quita());
+    
+	}
 }
