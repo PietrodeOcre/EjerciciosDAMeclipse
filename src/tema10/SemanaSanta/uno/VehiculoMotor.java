@@ -1,4 +1,4 @@
-package tema10.SemanaSanta;
+package tema10.SemanaSanta.uno;
 
 import java.util.Comparator;
 import java.util.SortedSet;
@@ -8,7 +8,7 @@ public abstract class VehiculoMotor implements Vehiculo {
 	
 	private String marca;
 	private int numRuedas;
-	private SortedSet<String> caracteristicasVehiculo = new TreeSet<String>(new Comparator<String>() {
+	private TreeSet<String> caracteristicasVehiculo = new TreeSet<String>(new Comparator<String>() {
 		@Override
 		public int compare(String s1, String s2) {
 			return s2.compareTo(s1);
@@ -21,6 +21,50 @@ public abstract class VehiculoMotor implements Vehiculo {
 		this.numRuedas = numRuedas;
 		this.caracteristicasVehiculo = caracteristicasVehiculo;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "VehiculoMotor [marca=" + marca + ", numRuedas=" + numRuedas + ", caracteristicasVehiculo="
+				+ caracteristicasVehiculo + "]";
+	}
+
+
+
+	public String getMarca() {
+		return marca;
+	}
+
+
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+
+
+	public int getNumRuedas() {
+		return numRuedas;
+	}
+
+
+
+	public void setNumRuedas(int numRuedas) {
+		this.numRuedas = numRuedas;
+	}
+
+	public TreeSet<String> getCaracteristicasVehiculo() {
+		return caracteristicasVehiculo;
+	}
+
+
+
+	public void setCaracteristicasVehiculo(TreeSet<String> caracteristicasVehiculo) {
+		this.caracteristicasVehiculo = caracteristicasVehiculo;
+	}
+
+
 
 	public void imprimeCaracteristicas() {
 		

@@ -1,4 +1,4 @@
-package tema10.SemanaSanta;
+package tema10.SemanaSanta.uno;
 
 public interface Vehiculo {
 
