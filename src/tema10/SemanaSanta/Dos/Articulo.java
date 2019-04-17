@@ -1,4 +1,4 @@
-package tema10.SemanaSanta.dos;
+package tema10.SemanaSanta.Dos;
 
 import java.util.HashSet;
 

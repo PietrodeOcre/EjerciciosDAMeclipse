@@ -1,4 +1,4 @@
-package tema10.SemanaSanta.uno;
+package tema10.SemanaSanta.Uno;
 
 import java.util.Comparator;
 import java.util.SortedSet;

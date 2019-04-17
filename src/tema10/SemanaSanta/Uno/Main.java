@@ -1,4 +1,4 @@
-package tema10.SemanaSanta.uno;
+package tema10.SemanaSanta.Uno;
 
 import java.util.HashSet;
 import java.util.TreeSet;

@@ -1,4 +1,4 @@
-package tema10.SemanaSanta.tres;
+package tema10.SemanaSanta.Tres;
 
 import java.util.Comparator;
 import java.util.Random;
@@ -38,15 +38,7 @@ public class MenorSiete {
 		
 		aniadeNum(listaNumero);
 		
-		listaNumero.stream().filter(e->e < 7).forEach(e->e System.out.println(e));
-		
-		for (int i = 0; i < listaNumero.size(); i++) {
-			if (listaNumero.stream() < 7) {
-				System.out.println(listaNumero[i]);
-			}
-		}
-		
-		//System.out.println(listaNumero);
+		listaNumero.stream().filter(a->(a<7)).forEach(a->System.out.println(a));
 		
 	}
 	
