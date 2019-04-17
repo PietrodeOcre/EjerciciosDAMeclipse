@@ -38,13 +38,12 @@ public class MenorSiete {
 		
 		aniadeNum(listaNumero);
 		
-		for (Integer integer : listaNumero) {
-			for (int i = 0; i < listaNumero.size(); i++) {
-				if (integer < 7) {
-					System.out.println(integer);
-				}
+		listaNumero.stream().filter(e->e < 7).forEach(e->e System.out.println(e));
+		
+		for (int i = 0; i < listaNumero.size(); i++) {
+			if (listaNumero.stream() < 7) {
+				System.out.println(listaNumero[i]);
 			}
-
 		}
 		
 		//System.out.println(listaNumero);
