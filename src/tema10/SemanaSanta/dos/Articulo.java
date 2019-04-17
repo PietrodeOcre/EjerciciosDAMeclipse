@@ -36,17 +36,15 @@ public class Articulo{
 	}
 	
 	public String getHashId() {
-		System.out.println("Articulo: '"+this.ref+"', '"+this.nombre+"' ");
-		
-		return this.ref+this.nombre;
+		//System.out.println("Articulo: '"+this.ref+"', '"+this.nombre+"' ");
+		String resp = this.ref+this.nombre;
+		//System.out.println(resp);
+		return resp;
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((nombre == null || ref == null) ? 0 : getHashId().hashCode());
-		return result;
+		return getHashId().hashCode();
 	}
 
 	// Equals
@@ -94,28 +92,33 @@ public class Articulo{
 		
 			
 		Articulo[] lista={
-				new Articulo("Caja","2",0.99),
-				new Articulo("Caja3","6",0.99),
-				new Articulo("Botella2","3",0.99),
-				new Articulo("Botella3","4",0.99),
-				new Articulo("Botella","1",0.99),
-				new Articulo("Caja2","5",0.99),
-				new Articulo("Botella4","7",0.99)};
+				new Articulo("Caja","2",2.99),
+				new Articulo("Caja","6",6.99),
+				new Articulo("Botella","3",3.99),
+				new Articulo("Botella","4",4.99),
+				new Articulo("Botella","1",1.99),
+				new Articulo("Caja","5",5.99),
+				new Articulo("Botella","7",7.99)};
+		
+		//Mostramos todos los elementos
+		for (Articulo lis:lista) {
+			System.out.println(lis.toString());
+		}
+		
 		
 		//Lista antes de tener un objeto repetido devuelve false
 		System.out.println(compruebaLista(lista));
 		
-		lista.toString();
-	
 		System.out.println("");
 		
-		//Muestra el resultado de método
-		lista[0].getHashId();
+		//Muestra el resultado de método en el objeto 0
+		System.out.println(lista[0].getHashId());
 		
 		System.out.println("");
 		
-		//Probamos el método compareTo
-		System.out.println(lista[0].compareTo(lista[1]));
+		//Probamos el método compareTo devuelve menor a 0 por que 
+		//lista[0] va primero que lista[2]
+		System.out.println(lista[0].compareTo(lista[2]));
 		
 		System.out.println("");
 		
