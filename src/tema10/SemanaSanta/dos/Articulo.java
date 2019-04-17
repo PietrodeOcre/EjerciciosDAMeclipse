@@ -35,16 +35,17 @@ public class Articulo{
 		this.precio = precio;
 	}
 	
-	public void getHashId() {
+	public String getHashId() {
 		System.out.println("Articulo: '"+this.ref+"', '"+this.nombre+"' ");
+		
+		return this.ref+this.nombre;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
-		result = prime * result + ((ref == null) ? 0 : ref.hashCode());
+		result = prime * result + ((nombre == null || ref == null) ? 0 : getHashId().hashCode());
 		return result;
 	}
 
@@ -92,16 +93,19 @@ public class Articulo{
 		//Instanciamos un array de Articulos
 		
 			
-		Articulo[] lista={new Articulo("Botella","1",0.99),
+		Articulo[] lista={
 				new Articulo("Caja","2",0.99),
+				new Articulo("Caja3","6",0.99),
 				new Articulo("Botella2","3",0.99),
 				new Articulo("Botella3","4",0.99),
+				new Articulo("Botella","1",0.99),
 				new Articulo("Caja2","5",0.99),
-				new Articulo("Caja3","6",0.99),
 				new Articulo("Botella4","7",0.99)};
 		
 		//Lista antes de tener un objeto repetido devuelve false
 		System.out.println(compruebaLista(lista));
+		
+		lista.toString();
 	
 		System.out.println("");
 		
