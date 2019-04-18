@@ -33,16 +33,19 @@ public class Persona implements Comparable{
 		this.apellido = apellido;
 	}
 	
+	
+	
+	
 	//toString
 	@Override
 	public String toString() {
-		return "Persona [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + "]";
+		return "Persona [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + "]\n";
 	}
 
 	//CompareTo
 	@Override
 	public int compareTo(Object persona) {
-		return this.apellido.equals(((Persona)persona).apellido);
+		return -this.apellido.compareTo(((Persona)persona).getApellido());
 	}
 
 	//HashCode
