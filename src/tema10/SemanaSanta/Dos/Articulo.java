@@ -2,7 +2,7 @@ package tema10.SemanaSanta.Dos;
 
 import java.util.HashSet;
 
-public class Articulo{
+public class Articulo implements Comparable{
 	
 	String nombre;
 	String ref;
@@ -59,8 +59,11 @@ public class Articulo{
 	}
 
 	//CompareTo
-	public int compareTo(Articulo articulo) {
-		return (int)precio-(int)articulo.precio;
+	@Override
+	public int compareTo(Object articulo) {
+		
+		// TODO Auto-generated method stub
+		return (int)precio-(int)((Articulo) articulo).precio;
 	}
 	
 	
@@ -77,6 +80,15 @@ public class Articulo{
 		}else {
 			return true;
 		}
+		
+		/*
+		 * for(Artculo articulo:lista){
+		 * 	if(!listax.add(articulo)){
+		 * 		return false;
+		 * 	}
+		 * }
+		 * return true;
+		 */
 
 	}
 
@@ -129,6 +141,7 @@ public class Articulo{
 		
 		
 	}
+
 
 	
 }

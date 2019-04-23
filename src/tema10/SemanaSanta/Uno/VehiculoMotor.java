@@ -1,14 +1,15 @@
 package tema10.SemanaSanta.Uno;
 
 import java.util.Comparator;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-public abstract class VehiculoMotor implements Vehiculo {
+public class VehiculoMotor implements Vehiculo {
 	
-	private String marca;
-	private int numRuedas;
-	private TreeSet<String> caracteristicasVehiculo = new TreeSet<String>(new Comparator<String>() {
+	protected String marca;
+	protected int numRuedas;
+	protected Set<String> caracteristicasVehiculo = new TreeSet<String>(new Comparator<String>() {
 		@Override
 		public int compare(String s1, String s2) {
 			return s2.compareTo(s1);
@@ -54,7 +55,7 @@ public abstract class VehiculoMotor implements Vehiculo {
 		this.numRuedas = numRuedas;
 	}
 
-	public TreeSet<String> getCaracteristicasVehiculo() {
+	public Set<String> getCaracteristicasVehiculo() {
 		return caracteristicasVehiculo;
 	}
 
@@ -72,6 +73,14 @@ public abstract class VehiculoMotor implements Vehiculo {
 			System.out.println(caract);
 		}
 		
+		/*
+		 * Iterator<String> iterator = caracteristicasVehiculo.iterator();
+		 * while (iterator.hasNext()){
+		 * 	String nombreCaracteristica = iterator.next();
+		 * 	System.out.println("");
+		 * }
+		 */
+		
 	}
 	
 	public void ImprimeOtrasCaracteristicas(String caracteristicas) {
@@ -84,6 +93,17 @@ public abstract class VehiculoMotor implements Vehiculo {
 			}
 			
 		}
+		
+		/*
+		 * Iterator<String> iterator = caracteristicasVehiculo.iterator();
+		 * while (iterator.hasNext()){
+		 * 	if(!caract.equals(caracteristicas)) {
+		 * 		String nombreCaracteristica = iterator.next();
+		 * 		System.out.println("");
+		 * 	}
+		 * }
+		 */
+		
 		
 	}
 	

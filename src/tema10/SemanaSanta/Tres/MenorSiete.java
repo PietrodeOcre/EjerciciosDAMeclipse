@@ -37,8 +37,10 @@ public class MenorSiete {
 		});
 		
 		aniadeNum(listaNumero);
-		
+		//Al cambiar el comparator en el treeset los headSet y el tailSet se muestran alreves...
 		listaNumero.stream().filter(a->(a<7)).forEach(a->System.out.println(a));
+		//System.out.println(listaNumero.headSet(7));//muestra os que son menor que 7
+		//System.out.println(listaNumero.tailSet(7));//muestra os que son igual o mayor que 7
 		
 	}
 	

@@ -76,7 +76,11 @@ public class Main {
 		//Imprimimos por pantalla el parking1 para comprobar que se agregan los vehículos en su interior
 		System.out.println(parking1);
 		
-		
+		/*
+		for(Vehiculo v:plaza) {
+			v.imprimeCaracteristicas();
+		}
+		*/
 	}
 	
 }

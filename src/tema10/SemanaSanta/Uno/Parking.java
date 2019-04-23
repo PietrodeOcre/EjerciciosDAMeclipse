@@ -10,7 +10,7 @@ public class Parking {
 		
 	}
 	 
-	private HashSet<Vehiculo> plaza = new HashSet<Vehiculo>();
+	protected HashSet<Vehiculo> plaza = new HashSet<Vehiculo>();
 	
 	public void addVehiculo (Vehiculo v) {
 		
