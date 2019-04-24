@@ -25,6 +25,11 @@ public class EjercicioClaseUno {
 		}
 		*/
 		
+		Iterator<String> iterator = listado.listIterator();
+	    while (iterator.hasNext()) { 
+	      System.out.println(iterator.next().toString().toUpperCase()); 
+	    }
+		
 		/*
 		int cont = 0;
 		Iterator<String> iterator = listado.iterator();
