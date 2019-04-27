@@ -1,10 +1,13 @@
 package tema10.HojaEjercicios;
 
 import java.util.LinkedList;
+
 import java.util.Queue;
 import java.util.Random;
 
-public class Colas {
+import javax.swing.JOptionPane;
+
+public class Colas{
 	
 	/*
 	 * Crear un elemento de cola de cadenas, agregar un array 
@@ -20,18 +23,25 @@ public class Colas {
 		String[] array= {"Manuel", "Pedro", "Mario", "María", "Jose", "Miguel", "Carlos"};
 		
 		Random rd = new Random();
+		
 
 		for (int i=1; i<=4; i++) {
 			int num = rd.nextInt(6)+1;
 			cola.add(array[num]);
+			escribirMensaje(cola);
 			//System.out.println(cola);
 			System.out.println(cola.poll());
 			//System.out.println(cola);
 		}
 		
 		
-		
+		escribirMensaje(cola);
 		System.out.println(cola);
+	}
+	
+	public static void escribirMensaje(Queue<String> cola){
+		//metodo para mostrar un texto en una ventana.
+		JOptionPane.showMessageDialog(null, cola, "Programa Prueba", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 }
