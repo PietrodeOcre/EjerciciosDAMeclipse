@@ -1,4 +1,4 @@
-package tema10.Ejercicios;
+package tema10.HojaEjercicios;
 
 import java.util.ArrayList;
 import java.util.HashSet;

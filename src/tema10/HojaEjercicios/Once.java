@@ -1,7 +1,11 @@
 package tema10.HojaEjercicios;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 public class Once {
 	
@@ -31,17 +35,36 @@ public static Map<String,Integer> reverse(Map<Integer, String> mapStr)
 		lista.put(29, "Ed");
 		
 		System.out.println(lista);
-		//reverse(lista);
+		reverse(lista);
 		
 	}
 	
 	public static Map<String,Integer> reverse(Map<Integer, String> mapStr){
 		
 		//Collections.reverse(); 
+		Map<String,Integer> mapStr2 = new HashMap<>();
+		String[] array = new String[mapStr.size()];
+		
+
+		for(Entry<Integer, String> entry: mapStr.entrySet()) {
+			
+			Integer clave= entry.getKey();
+			
+			String array= entry.getValue();
+			String array = entry.getValue().lastIndexOf(valor);
+			
+			System.out.println(valor2);
+			
+			if(entry.getValue().indexOf(valor) != entry.getValue().lastIndexOf(valor)) {
+				//mapStr2.put(pos,clave);	
+			}
+		
+		}
 		
 		
 		
-		System.out.println(mapStr);
+		
+		System.out.println(mapStr2);
 		
 		return null;
 
