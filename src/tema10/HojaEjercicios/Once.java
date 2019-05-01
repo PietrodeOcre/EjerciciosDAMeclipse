@@ -49,7 +49,7 @@ public static Map<String,Integer> reverse(Map<Integer, String> mapStr)
 		for(Entry<Integer, String> entry: mapStr.entrySet()) {
 			
 			Integer clave= entry.getKey();
-			
+			/*
 			String array= entry.getValue();
 			String array = entry.getValue().lastIndexOf(valor);
 			
@@ -58,7 +58,7 @@ public static Map<String,Integer> reverse(Map<Integer, String> mapStr)
 			if(entry.getValue().indexOf(valor) != entry.getValue().lastIndexOf(valor)) {
 				//mapStr2.put(pos,clave);	
 			}
-		
+		*/
 		}
 		
 		
