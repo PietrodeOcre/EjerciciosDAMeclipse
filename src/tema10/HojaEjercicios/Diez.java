@@ -68,6 +68,14 @@ Utiliza uno o más colecciones Set para el almacenamiento temporal.
 				}
 			}
 		}
+		/*
+		int cont = 0; 
+		for (Integer integer : listaEnteros1) {
+			if(listaEnteros1.contains(listaEnteros2)) {
+				cont++;
+			}
+		}
+		*/
 		System.out.println(listaTemp);
 		
 		return listaTemp.size();
