@@ -29,8 +29,8 @@ public class RepartoCorreos {
 		// Completar
 		for (Direccion d : direcciones) {
 			if (!ordenados.containsKey(d.getCodigoPostal())) {
-				ordenados.put(d.getCodigoPostal(), new TreeSet<Direccion>(new OrdenaPorCalleYNumero())); 
-				ordenados.get(d.getCodigoPostal()).add(d);
+				//ordenados.put(d.getCodigoPostal(), new TreeSet<Direccion>(new OrdenaPorCalleYNumero())); 
+				//ordenados.get(d.getCodigoPostal()).add(d);
 			}
 		}
 	
