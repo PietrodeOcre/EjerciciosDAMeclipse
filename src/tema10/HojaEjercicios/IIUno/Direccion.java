@@ -1,4 +1,4 @@
-package tema10.HojaEjercicios.II;
+package tema10.HojaEjercicios.IIUno;
 
 public class Direccion implements Comparable<Direccion>{
 	
@@ -54,6 +54,42 @@ public class Direccion implements Comparable<Direccion>{
 		
 		
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((calle == null) ? 0 : calle.hashCode());
+		result = prime * result + numero;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj instanceof Direccion)) {
+			return false;
+		}
+		Direccion other = (Direccion) obj;
+		if (calle == null) {
+			if (other.calle != null) {
+				return false;
+			}
+		} else if (!calle.equals(other.calle)) {
+			return false;
+		}
+		if (numero != other.numero) {
+			return false;
+		}
+		return true;
+	}
+	
+	
 	
 	
 }
