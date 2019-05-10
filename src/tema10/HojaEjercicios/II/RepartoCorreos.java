@@ -1,11 +1,12 @@
 package tema10.HojaEjercicios.II;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.Comparator;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeMap;
-import java.util.TreeSet;
+
+import tema10.HojaEjerciciosII.Direccion;
 
 public class RepartoCorreos {
 	
@@ -17,16 +18,21 @@ public class RepartoCorreos {
 				new Direccion("Alcala", 45, 28014),
 				new Direccion("San Vicente Ferrer", 35, 28047)
 		};
-		Set<Direccion> calles = new HashSet<Direccion>(Arrays.asList(direcciones)); // Completar
+		ArrayList<String> calles = new ArrayList<String>(Arrays.asList(direcciones.toString())); 
+		// Completar
 		System.out.println("Direcciones distintas:\n "+calles);
 		// Sólo sale una Direccion C/ Alcalá
-		Map<Integer, Direccion> ordenados = new TreeMap<Integer, Direccion>();
+		Map ordenados = new TreeMap(new Comparator<String>() {
+			public int compare(String o1, String o2) {
+				return o1.compareTo(o2);
+			}
+		});
 		// Completar
 		for (Direccion d : direcciones) {
-			//if (! ordenados.containsKey(d.getCodigoPostal()))ordenados.put(d.getCodigoPostal(), new TreeSet<Direccion>( new OrdenaPorCalleYNumero()));
+			if (!ordenados.containsKey(d.getCodigoPostal())) {
+				//ordenados.put(d.getCodigoPostal(), new TreeSet<Direccion>(new OrdenaPorCalleYNumero())); 
 				//ordenados.get(d.getCodigoPostal()).add(d);
-			//}
-			System.out.println("Direcciones por CP y Calle:\n "+ordenados);
+			}
 		}
 	}
 	
