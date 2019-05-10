@@ -23,11 +23,11 @@ public class RepartoCorreos {
 		Map<Integer, Direccion> ordenados = new TreeMap<Integer, Direccion>();
 		// Completar
 		for (Direccion d : direcciones) {
-			if (! ordenados.containsKey(d.getCodigoPostal()))ordenados.put(d.getCodigoPostal(), new TreeSet<Direccion>( new OrdenaPorCalleYNumero()));
-				ordenados.get(d.getCodigoPostal()).add(d);
-			}
+			//if (! ordenados.containsKey(d.getCodigoPostal()))ordenados.put(d.getCodigoPostal(), new TreeSet<Direccion>( new OrdenaPorCalleYNumero()));
+				//ordenados.get(d.getCodigoPostal()).add(d);
+			//}
 			System.out.println("Direcciones por CP y Calle:\n "+ordenados);
 		}
-
+	}
 	
 }
