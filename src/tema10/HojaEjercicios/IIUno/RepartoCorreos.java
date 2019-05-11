@@ -14,7 +14,7 @@ public class RepartoCorreos {
 		Direccion[] direcciones = { new Direccion("San Vicente Ferrer", 37, 28047),
 				new Direccion("Barquillo", 3, 28014), new Direccion("Alcala", 45, 28014),
 				new Direccion("Alcala", 45, 28014), new Direccion("San Vicente Ferrer", 35, 28047) };
-		HashSet<Direccion> calles = new HashSet(Arrays.asList(direcciones)); // Completar
+		HashSet<Direccion> calles = new HashSet<Direccion>(Arrays.asList(direcciones)); // Completar
 		System.out.println("Direcciones distintas:\n " + calles); // Sólo sale una Direccion C/ Alcalá
 		Map<Integer, TreeSet<Direccion>> ordenados = new HashMap<Integer, TreeSet<Direccion>>();
 		// Completar
