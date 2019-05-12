@@ -36,14 +36,14 @@ public class EntradaPreferente extends Entrada{
 	      precioFinal = precioBase();
 	    }
 		
-		precioFinal = precioFinal+(precioBase() * 0.1);
-		/*
-		if (this.codigoReserva == null) {
+		//precioFinal = precioFinal+(precioBase() * 0.1);
+		
+		if (this.codigoReserva != null) {
 			precioFinal = precioFinal+(precioBase() * 0.1);
 		}else {
 			precioFinal = precioFinal+(precioBase() * 0.2);
 		}
-		*/
+		
 		return precioFinal;
 	}
 
