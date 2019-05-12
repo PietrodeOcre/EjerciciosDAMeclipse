@@ -11,5 +11,10 @@ public class Frigorifico extends Electrodomestico {
 	String obtieneProoveedor() {
 		return "balay";
 	}
+
+	@Override
+	public String toString() {
+		return "Frigorifico []";
+	}
 	
 }

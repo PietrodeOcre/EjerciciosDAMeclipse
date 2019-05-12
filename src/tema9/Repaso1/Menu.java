@@ -20,4 +20,10 @@ public class Menu extends PrimerPlato implements SegundoPlato, Postre{
 		
 	}
 
+	@Override
+	public void PedirAgua() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

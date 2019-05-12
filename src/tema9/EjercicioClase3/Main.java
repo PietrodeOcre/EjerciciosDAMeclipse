@@ -1,5 +1,7 @@
 package tema9.EjercicioClase3;
 
+import java.util.Arrays;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -9,6 +11,8 @@ public class Main {
 				new Televisor(),
 				new Frigorifico()
 		};
+		
+		System.out.println(Arrays.toString(array));
 		
 		int suma = 0;
 

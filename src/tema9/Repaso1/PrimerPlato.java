@@ -2,6 +2,8 @@ package tema9.Repaso1;
 
 public abstract class PrimerPlato {
 
+	public String nombre;
+	
 	public void PedirAgua() {
 		System.out.println(" Agua, por favor...");
 	}

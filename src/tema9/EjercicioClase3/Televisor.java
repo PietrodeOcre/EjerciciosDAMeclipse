@@ -12,4 +12,9 @@ public class Televisor extends Electrodomestico {
 		return 300;
 	}
 
+	@Override
+	public String toString() {
+		return "Televisor []";
+	}
+
 }
