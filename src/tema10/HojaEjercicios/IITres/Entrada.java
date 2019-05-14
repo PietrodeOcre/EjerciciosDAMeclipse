@@ -46,10 +46,9 @@ public class Entrada implements Comparable<Entrada>{
 	}
 
 	protected Double precioFinal(Evento evento) {
-		if(evento == evento.SOCIAL) {
-			precioFinal = (precioBase() * 0.5);
-	    }else {
-	      precioFinal = precioBase();
+		precioFinal = this.precio;
+		if(evento.equals(evento.SOCIAL)) {
+			precioFinal = this.precio * 0.5;
 	    }
 		return precioFinal;
 	}

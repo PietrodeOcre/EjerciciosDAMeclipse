@@ -11,14 +11,14 @@ public class Main {
 		Imponible psin=new Patrimonio();
 		
 		((Patrimonio)psin).add(p1);//casting porque add no es método de Imponible
-		System.out.println(psin.id()+" "+psin.impuestos());//1500 = 25%(6000)
+		//System.out.println(psin.id() +" "+ psin.impuestos(null));//1500 = 25%(6000)
 		
 		Patrimonio pat=new Patrimonio(p1,p2);
-		pat.add(p3,new Inmueble("Piso1",0));//añadep3peroPiso1noserepite
+		//pat.add(p3,new Inmueble("Piso1",0));//añadep3peroPiso1noserepite
 		
 		System.out.println(p2.impuestos());//2000  = 1%(200000)
 		System.out.println(p3.impuestos());//1000 = 2%(50000 exceso sobre5 0 0 0 0 0 )
-		System.out.println(pat.id() +" "+pat.impuestos());//4500 = 1500 + 2000 + 1000
+		//System.out.println(pat.id() +" "+ pat.impuestos());//4500 = 1500 + 2000 + 1000
 		
 	}
 

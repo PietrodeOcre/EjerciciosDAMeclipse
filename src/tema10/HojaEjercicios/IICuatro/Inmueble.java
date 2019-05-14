@@ -13,4 +13,13 @@ public class Inmueble extends Propiedad{
 		super(nombre, cantidad);
 	}
 	
+	public double impuestos() {
+		
+		if(alquiler !=0) {
+			return 0.25*alquiler;
+		}else {
+			return super.cantidadTotal;
+		}
+	}
+	
 }

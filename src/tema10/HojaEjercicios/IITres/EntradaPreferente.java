@@ -4,10 +4,10 @@ public class EntradaPreferente extends Entrada{
 	
 	public String codigoReserva;
 
-	public EntradaPreferente(Entrada entrada, String codigoReserva) {
+	/*public EntradaPreferente(Entrada entrada, String codigoReserva) {
 		super(entrada, codigoReserva);
 		this.codigoReserva = codigoReserva;
-	}
+	}*/
 
 	public EntradaPreferente(String string, double d, Evento evento) {
 		super(string, d, evento);
@@ -29,19 +29,12 @@ public class EntradaPreferente extends Entrada{
 	
 	@Override
 	protected Double precioFinal(Evento evento) {
-		
-		if(evento == evento.SOCIAL) {
-			precioFinal = (precioBase() * 0.5);
-	    }else {
-	      precioFinal = precioBase();
-	    }
-		
-		//precioFinal = precioFinal+(precioBase() * 0.1);
+		precioFinal = super.precioFinal(evento);
 		
 		if (this.codigoReserva != null) {
-			precioFinal = precioFinal+(precioBase() * 0.1);
+			precioFinal = precioFinal+precioBase() * 0.2;
 		}else {
-			precioFinal = precioFinal+(precioBase() * 0.2);
+			precioFinal = precioFinal+precioBase() * 0.1;
 		}
 		
 		return precioFinal;

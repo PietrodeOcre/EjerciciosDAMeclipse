@@ -6,4 +6,16 @@ public class CtaBanco extends Propiedad{
 		super(nombre, cantidadTotal);
 	}
 	
+	public double impuestos() {
+		
+	
+		int valor = cantidadTotal - 500000;
+		if(valor !=0) {
+			return 0.25*cantidadTotal;
+		}else {
+			return super.cantidadTotal;
+		}
+	}
+	
+	
 }
