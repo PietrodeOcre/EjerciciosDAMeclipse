@@ -6,8 +6,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 public class Tema11Ejercicio7 {
 	
@@ -28,13 +32,30 @@ public class Tema11Ejercicio7 {
 	
 
 	public static void main(String[] args) throws IOException {
-		// "/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7.txt"
-		// "/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7Censura.txt"
-		File rutaFile = new File("/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7.txt");
+		/* 
+		 * PC portatil:
+		 * "/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7.txt"
+		 * "/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7Censura.txt"
+		 * "/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7Censurado.txt"
+		 * PC de casa:
+		 * 
+		 * "/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7.txt"
+		 * "/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7Cesura.txt"
+		 * "/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7censurado.txt"
+		 */
 		
-		crearFichero(rutaFile);
-		ficheroCensura();
-		aplicaCensura(rutaFile);
+		File rutaFilePortatil = new File("/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7.txt");
+		File rutaFileCensuraPortatil = new File("/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7Censura.txt");
+		File rutaFileCensuradoPortatil = new File("/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7Censurado.txt");
+		
+		File rutaFileCasa = new File("/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7.txt");
+		File rutaFileCensuraCasa = new File("/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7Cesura.txt");
+		File rutaFileCensuradoCasa = new File("/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7censurado.txt");
+		
+		
+		crearFichero(rutaFileCasa);
+		crearFicheroCensura(rutaFileCensuraCasa);
+		aplicaCensura(rutaFileCasa,rutaFileCensuraCasa,rutaFileCensuradoCasa);
 		
 		
 		
@@ -50,7 +71,7 @@ public class Tema11Ejercicio7 {
 			fos = new FileOutputStream(ruta);
 			daos = new DataOutputStream(fos);
 			
-			String cadenaString = "En un lugar de la mancha de cuyo nombre no quiero acordarme...Vivía un hidalgo de adarga estrecha";
+			String cadenaString = "En un lugar de la mancha de cuyo nombre no quiero acordarme... Vivía un hidalgo de adarga estrecha";
 			
 			daos.writeUTF(cadenaString);
 			
@@ -68,17 +89,17 @@ public class Tema11Ejercicio7 {
 	}
 	
 	
-	public static void ficheroCensura() {
+	public static void crearFicheroCensura(File ruta) {
 	
 		FileOutputStream fos = null;
 		DataOutputStream daos = null;
 		
 		try {
-			fos = new FileOutputStream(ruta());
+			fos = new FileOutputStream(ruta);
 			daos = new DataOutputStream(fos);
 			
 			String cadenaCensuraString = "acordarme recordar\n"
-					+ "hidalgo noble";
+					+ " hidalgo noble";
 			
 			String[]  cadenaSeparadaStrings = cadenaCensuraString.split(" ");
 			
@@ -100,7 +121,7 @@ public class Tema11Ejercicio7 {
 		
 	}
 	
-	public static Map<String, String> aplicaCensura(File ruta) {
+	public static Map<String, String> aplicaCensura(File ruta, File rutaCensura, File rutaCensurado) {
 		FileInputStream fis = null;
 		DataInputStream dais = null;
 		
@@ -112,37 +133,60 @@ public class Tema11Ejercicio7 {
 			fis = new FileInputStream(ruta);
 			dais = new DataInputStream(fis);
 			
-			fis = new FileInputStream(ruta());
-			dais = new DataInputStream(fis);
+			fis2 = new FileInputStream(rutaCensura);
+			dais2 = new DataInputStream(fis2);
 			
 			String cadena1;
 			String cadena2;
 			
 			censuraMap = new HashMap<String, String>();
 			
-			String cadenaCensura = "";
+			List<String> cadenaCensura = new ArrayList<String>();
 			
-			while (dais2.available()>0) {
+			while (dais2.available() > 0) {
 				
-				cadena1 = dais2.readUTF();
-				
-				cadena2 = dais2.readUTF();
-				
+				cadenaCensura.add(dais2.readUTF());
+
 			}
-			
+			int cont = 1;
+			String strAux="";
+			for (String string : cadenaCensura) {
+
+				if(cont%2!=0) {
+					censuraMap.put(string, "");
+					strAux = string; 
+				}else {
+					censuraMap.put(strAux, string);
+				}
+
+				cont++;
+			}
+			StringTokenizer strToken = null;
+			System.out.println("");
+			System.out.println(censuraMap);
+			System.out.println("");
 			String cadenaString = "";
+			List<String> diccionario = new LinkedList<>();
+			
 			while (dais.available() > 0) {
+				
 				
 				cadenaString += dais.readUTF();
 				
+				//cadenaString += dais.readUTF();
+				strToken = new StringTokenizer(cadenaString);
+				
+				while (strToken.hasMoreTokens()) {					
+					diccionario.add(
+							eliminaCaracteresEspeciales(
+									strToken.nextToken().toLowerCase()));					
+				}
 
 			}
-			
+			System.out.println("");
 			System.out.println(cadenaString);
 			
-			
-			
-			
+			System.out.println(diccionario);
 			
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -160,9 +204,9 @@ public class Tema11Ejercicio7 {
 		
 	}
 	
-	public static File ruta() {
-		File rutaCensura = new File("/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7Censura.txt");
-		return rutaCensura;
+	public static String eliminaCaracteresEspeciales(String str) {
+		return str.replaceAll("[^a-zA-Z0-9]", "");
 	}
-
+	
+	
 }
