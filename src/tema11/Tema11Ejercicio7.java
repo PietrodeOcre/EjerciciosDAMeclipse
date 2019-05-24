@@ -74,7 +74,7 @@ public class Tema11Ejercicio7 {
 			fos = new FileOutputStream(ruta);
 			daos = new DataOutputStream(fos);
 			
-			String cadenaString = "En un lugar de la mancha de cuyo nombre no quiero acordarme... Vivía un hidalgo de adarga estrecha";
+			String cadenaString = "En un lugar de la mancha de cuyo nombre no quiero acordarme... Vivia un hidalgo de adarga estrecha";
 			
 			daos.writeUTF(cadenaString);
 			
@@ -165,9 +165,7 @@ public class Tema11Ejercicio7 {
 				cont++;
 			}
 			StringTokenizer strToken = null;
-			System.out.println("");
 			System.out.println(censuraMap);
-			System.out.println("");
 			String cadenaString = "";
 			List<String> diccionario = new LinkedList<>();
 			
@@ -183,12 +181,14 @@ public class Tema11Ejercicio7 {
 
 					strAux = eliminaCaracteresEspeciales(strToken.nextToken());
 					
-					System.out.println(strAux);
-					if(censuraMap.containsValue(strAux)) {
-						System.out.println("hhhhhhhhhhhh");
+					//System.out.println(strAux);
+					if(censuraMap.containsKey(strAux)) {
+						
+						diccionario.add(censuraMap.get(strAux));
+					}else {
+						diccionario.add(strAux);
 					}
 					
-					//diccionario.add(eliminaCaracteresEspeciales(strToken.nextToken()));					
 				}
 
 			}			
@@ -197,6 +197,8 @@ public class Tema11Ejercicio7 {
 			System.out.println(cadenaString);
 			
 			System.out.println(diccionario);
+			
+			crearNuevoLimpio(diccionario, rutaCensurado);
 			
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -211,6 +213,42 @@ public class Tema11Ejercicio7 {
 		}
 		
 		return censuraMap;
+		
+	}
+	
+	public static void crearNuevoLimpio(List<String> diccionario, File rutaFileCensuradoPortatil) {
+		
+		FileOutputStream fos = null;
+		DataOutputStream daos = null;
+		
+		try {
+			
+			fos = new FileOutputStream(rutaFileCensuradoPortatil);
+			daos = new DataOutputStream(fos);
+			
+			String auxString = "";
+			
+			for (String string : diccionario) {
+				auxString += string + " ";
+			}
+			
+			System.out.println(auxString);
+			
+			daos.writeUTF(auxString);
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				daos.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}finally {
+				
+			}
+		}
 		
 	}
 	
