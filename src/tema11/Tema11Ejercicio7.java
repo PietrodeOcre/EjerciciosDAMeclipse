@@ -23,8 +23,11 @@ public class Tema11Ejercicio7 {
 	 * Ejemplo:Fichero de entrada
 	 * En un lugar de la mancha de cuyo nombre
 	 * no quiero acordarme...Vivía un hidalgo de adarga estrechaFichero
-	 * de censuraacordarme recordarhidalgo nobleFichero de salidaEn un
-	 * lugar de la mancha de cuyo nombre no quiero recordar...vivía 
+	 * de censura
+	 * acordarme recordar
+	 * hidalgo noble
+	 * Fichero de salida
+	 * En un lugar de la mancha de cuyo nombre no quiero recordar...vivía 
 	 * un noble de adarga estrecha
 	 * Nota: Utilice las clases DataInputStream y DataOutputStream
 	 */
@@ -53,9 +56,9 @@ public class Tema11Ejercicio7 {
 		File rutaFileCensuradoCasa = new File("/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7censurado.txt");
 		
 		
-		crearFichero(rutaFileCasa);
-		crearFicheroCensura(rutaFileCensuraCasa);
-		aplicaCensura(rutaFileCasa,rutaFileCensuraCasa,rutaFileCensuradoCasa);
+		crearFichero(rutaFilePortatil);
+		crearFicheroCensura(rutaFileCensuraPortatil);
+		aplicaCensura(rutaFilePortatil,rutaFileCensuraPortatil,rutaFileCensuradoPortatil);
 		
 		
 		
@@ -176,13 +179,20 @@ public class Tema11Ejercicio7 {
 				//cadenaString += dais.readUTF();
 				strToken = new StringTokenizer(cadenaString);
 				
-				while (strToken.hasMoreTokens()) {					
-					diccionario.add(
-							eliminaCaracteresEspeciales(
-									strToken.nextToken().toLowerCase()));					
+				while (strToken.hasMoreTokens()) {
+
+					strAux = eliminaCaracteresEspeciales(strToken.nextToken());
+					
+					System.out.println(strAux);
+					if(censuraMap.containsValue(strAux)) {
+						System.out.println("hhhhhhhhhhhh");
+					}
+					
+					//diccionario.add(eliminaCaracteresEspeciales(strToken.nextToken()));					
 				}
 
-			}
+			}			
+			
 			System.out.println("");
 			System.out.println(cadenaString);
 			
@@ -207,6 +217,8 @@ public class Tema11Ejercicio7 {
 	public static String eliminaCaracteresEspeciales(String str) {
 		return str.replaceAll("[^a-zA-Z0-9]", "");
 	}
+	
+	
 	
 	
 }
