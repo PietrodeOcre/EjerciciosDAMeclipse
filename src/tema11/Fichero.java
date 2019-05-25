@@ -6,6 +6,13 @@ public class Fichero {
 
 	public static void main(String[] args) {
 		
+		listaFicherosDirectorios();
+		
+		
+		
+	}
+
+	private static void listaFicherosDirectorios() {
 		File file = new File("/home/pietrodeocre");
 		
 		if (file.exists()) {
@@ -17,9 +24,6 @@ public class Fichero {
 		for (File file2 : listaficheros) {
 			System.out.println(file2.getName());
 		}
-		
-		
-		
 	}
 
 }

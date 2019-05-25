@@ -56,9 +56,9 @@ public class Tema11Ejercicio7 {
 		File rutaFileCensuradoCasa = new File("/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7censurado.txt");
 		
 		
-		crearFichero(rutaFilePortatil);
-		crearFicheroCensura(rutaFileCensuraPortatil);
-		aplicaCensura(rutaFilePortatil,rutaFileCensuraPortatil,rutaFileCensuradoPortatil);
+		crearFichero(rutaFileCasa);
+		crearFicheroCensura(rutaFileCensuraCasa);
+		aplicaCensura(rutaFileCasa,rutaFileCensuraCasa,rutaFileCensuradoCasa);
 		
 		
 		
@@ -74,7 +74,8 @@ public class Tema11Ejercicio7 {
 			fos = new FileOutputStream(ruta);
 			daos = new DataOutputStream(fos);
 			
-			String cadenaString = "En un lugar de la mancha de cuyo nombre no quiero acordarme... Vivia un hidalgo de adarga estrecha";
+			String cadenaString = "En un lugar de la mancha de cuyo nombre no quiero acordarme...\n"
+										+ "Vivía un hidalgo de adarga estrecha";
 			
 			daos.writeUTF(cadenaString);
 			

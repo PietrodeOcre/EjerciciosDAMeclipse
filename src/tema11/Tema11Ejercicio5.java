@@ -17,7 +17,7 @@ public static int longitudMayorFichero(String ruta)
 
 	public static void main(String[] args) {
 		
-		String ruta = "/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7.txt";
+		String ruta = "/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7.txt";
 		
 		System.out.println(longitudMayorFichero(ruta));
 
@@ -31,37 +31,31 @@ public static int longitudMayorFichero(String ruta)
 		BufferedReader dais = null;
 		String  palabraMayorString = null;
 		StringTokenizer stringToken = null;
-			String string = null;
+		String string = null;
 		try {
 			
 			fis = new FileInputStream(ruta);
 			dais = new BufferedReader(new InputStreamReader(fis));
-			
-			
-			
+			palabraMayorString = "";
+		
 			while ((string = dais.readLine())!=null) {
-				
-				
-				stringToken = new StringTokenizer(eliminaCaracteresEspeciales(string));
+	
+				stringToken = new StringTokenizer(string);
 				
 				while(stringToken.hasMoreTokens()) {
 					String palabraFichero = stringToken.nextToken();
-					
+					eliminaCaracteresEspeciales(palabraFichero);
 					if(palabraFichero.length() > palabraMayorString.length()) {
 						
 						palabraMayorString = palabraFichero;
-						
-						System.out.println(palabraMayorString);
+	
 					}
 				}
-				
-				
+	
 			}
 			
-			
-			
-			
-			
+			System.out.println(palabraMayorString);
+
 		} catch (IOException e) {
 			e.printStackTrace();
 			

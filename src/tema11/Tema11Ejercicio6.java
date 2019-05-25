@@ -17,7 +17,7 @@ un fichero. El prototipo del método es el siguiente:
 	
 	public static void main(String[] args) {
 		
-		String ruta = "/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7.txt";
+		String ruta = "/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio7.txt";
 		
 		System.out.println(longitudMayorFichero(ruta));
 
@@ -44,11 +44,11 @@ un fichero. El prototipo del método es el siguiente:
 			while ((string = dais.readLine())!=null) {
 				
 				
-				stringToken = new StringTokenizer(eliminaCaracteresEspeciales(string));
+				stringToken = new StringTokenizer(string);
 				
 				while(stringToken.hasMoreTokens()) {
 					String palabraFichero = stringToken.nextToken();
-
+					eliminaCaracteresEspeciales(palabraFichero);
 					if(mapaMap.containsKey(palabraFichero)) {
 						mapaMap.put(palabraFichero, mapaMap.get(palabraFichero)+1);
 					}else {

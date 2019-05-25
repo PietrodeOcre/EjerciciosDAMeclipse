@@ -27,7 +27,7 @@ public static void main(String[] args) {
 			
 		
 			
-			fis = new FileInputStream("//home//pietrodeocre//prueba2.txt");
+			fis = new FileInputStream("/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/archivosficheros/prueba2.txt");
 			brReader = new BufferedReader(new InputStreamReader(fis));
 			
 			
@@ -55,7 +55,7 @@ public static void main(String[] args) {
 			System.out.println("Numero de lineas del fichero: "+ cont);
 			
 			
-			fos = new FileOutputStream("//home//pietrodeocre//prueba2.txt");
+			fos = new FileOutputStream("/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/archivosficheros/prueba2.txt");
 			bWriter = new BufferedWriter(new OutputStreamWriter(fos));
 			
 			//for (String string2 : lineaStrings) {

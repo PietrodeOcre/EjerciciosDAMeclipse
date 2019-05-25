@@ -3,42 +3,46 @@ package ExamenTema10.Ejercicio3;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.Map.Entry;
 
 public class GestorImpuestos {
-	
-	
-	TreeSet<Inmueble> inmuebles2 = new TreeSet<Inmueble>();
-	
-	Map<Integer,TreeSet<Inmueble>> inmuebles = new TreeMap<Integer,TreeSet<Inmueble>>();
-	
-	public void anadeInmueble(int codigoPostal, Inmueble inmueble) {
-		
-		TreeSet<Inmueble> inmuebles3 = new TreeSet<Inmueble>(inmuebles2);
-		
-		inmuebles3.add(inmueble);
-		
-		inmuebles2 = new TreeSet<Inmueble>(inmuebles3);
-		
-		inmuebles.put(codigoPostal, inmuebles2);
-	}
-	public double totalImpuestos() {
-		
-		double valorTotal = 0;
-		
-		for (Inmueble iterable_element : inmuebles2) {
 
-			valorTotal =  valorTotal + iterable_element.totalImpuestos();
-
+	Map<Integer, TreeSet<Inmueble>> inmuebles = new TreeMap<>();
+	
+	public void anadeInmueble(int i, Inmueble inmueble) {
+		// TODO Auto-generated method stub
+		if (inmuebles.containsKey(i)) {
+			inmuebles.get(i).add(inmueble);
 		}
-		
-		return valorTotal;
-		
+		else {
+			inmuebles.put(i, new TreeSet<>());
+			inmuebles.get(i).add(inmueble);
+		}
 	}
+
+	public double totalImpuestos() {
+		// TODO Auto-generated method stub
+		double sumaImpuestos = 0.0;
+		for (Entry<Integer, TreeSet<Inmueble>> entry:inmuebles.entrySet()) {
+			
+		
+				TreeSet<Inmueble> lista = entry.getValue();
+				for (Inmueble inmueble:lista) {
+					sumaImpuestos = sumaImpuestos + inmueble.totalImpuestos();
+				}
+			
+			
+			
+		}
+		return sumaImpuestos;
+	}
+
 	@Override
 	public String toString() {
-		return "Salida: \n" + inmuebles + "]\n";
+		// TODO Auto-generated method stub
+		return inmuebles.toString();
 	}
+
 	
-	
-	
+	 
 }

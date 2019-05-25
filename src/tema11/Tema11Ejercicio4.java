@@ -19,16 +19,28 @@ public class Tema11Ejercicio4 {
 	public static void main(String[] args) {
 		
 		File rutaString = new File("/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio9.txt");
-
-		System.out.println(ultimaHora(rutaString));
+		File rutaString2 = new File("/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio9.txt");
+		System.out.println(ultimaHora(rutaString2));
 		
 	}
 	
-	public static Date ultimaHora(File ruta) {
+	public static String ultimaHora(File ruta) {
 		
 	    Date fecha = new Date(ruta.lastModified());
-
-		return fecha;
+	    Calendar calendario = new GregorianCalendar();
+	    calendario.setTime(fecha);
+	    
+	    String dia = Integer.toString(calendario.get(Calendar.DATE));
+	    String mes = Integer.toString(calendario.get(Calendar.MONTH));
+	    String annio = Integer.toString(calendario.get(Calendar.YEAR));
+	    String hora = Integer.toString(calendario.get(Calendar.HOUR_OF_DAY));
+	    String minuto = Integer.toString(calendario.get(Calendar.MINUTE));
+	    String segundo = Integer.toString(calendario.get(Calendar.SECOND));
+	    
+	    
+	    String horaString = "última modificación a las "+ hora + " horas y "+ minuto + " minutos";
+	    
+		return horaString;
 
 	}
 

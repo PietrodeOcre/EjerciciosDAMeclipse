@@ -28,8 +28,9 @@ public class EjerciciosClase1 {
 	public static void main(String[] args) {
 		
 		String escrituraString = "/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/archivosTemp/frases1.txt";
-		crearFichero(escrituraString);
-		lectura(escrituraString);
+		String escrituraString2 = "/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/archivosficheros/frases1.txt";
+		crearFichero(escrituraString2);
+		lectura(escrituraString2);
 
 	}
 	
@@ -55,7 +56,7 @@ public class EjerciciosClase1 {
 			
 		} catch (Exception e) {
 			
-			
+			e.printStackTrace();
 		}finally {
 			
 			try {
@@ -64,7 +65,7 @@ public class EjerciciosClase1 {
 				
 				
 			} catch (IOException e2) {
-				// TODO: handle exception
+				e2.printStackTrace();
 			}
 		}
 	}
@@ -78,7 +79,7 @@ public class EjerciciosClase1 {
 		String string =null;
 		StringTokenizer strTokenizer = null;
 		List<String> vocales = null;
-		List<String> consonentes = null;
+		List<String> consonantes = null;
 		
 		
 		try {
@@ -88,7 +89,7 @@ public class EjerciciosClase1 {
 			strList = new ArrayList<String>();
 			string = "";
 			vocales = new ArrayList<String>();
-			consonentes = new ArrayList<String>();
+			consonantes = new ArrayList<String>();
 			
 			while ((string = dais.readLine())!=null) {
 				//string = dais.readLine();
@@ -98,16 +99,16 @@ public class EjerciciosClase1 {
 			
 			
 			for (String string2 : strList) {
-				strTokenizer = new StringTokenizer(eliminaCaracteresEspeciales(string2));
+				strTokenizer = new StringTokenizer(string2);
 				String palabraFichero ="";
-				char[] inicial = {'a','e','i','o','u'};
+				String ini="";
 				while(strTokenizer.hasMoreTokens()) {
+					ini = strTokenizer.nextToken();
 					
-					
-					if(strTokenizer.nextToken().charAt(0) == inicial[]) {
-						vocales.add(strTokenizer.nextToken());
+					if(ini.charAt(0) == 'a'|| ini.charAt(0) == 'e' || ini.charAt(0) == 'i' || ini.charAt(0) == 'o' || ini.charAt(0) == 'u') {
+						vocales.add(ini);
 					}else {
-						consonentes.add(strTokenizer.nextToken());
+						consonantes.add(ini);
 					}
 					//System.out.println(palabraFichero);
 					
@@ -116,12 +117,14 @@ public class EjerciciosClase1 {
 				}
 			}
 			
-			
+			String ruta1 = "/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/archivosficheros/vocales.txt";
+			String ruta2 = "/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/archivosficheros/consonantes.txt";
+			escribirNuevosFicheros(ruta1, ruta2, vocales, consonantes);
 			
 			
 			
 			System.out.println(vocales);
-			System.out.println(consonentes);
+			System.out.println(consonantes);
 			//System.out.println(strList);
 			//System.out.println(strTokenizer.toString());
 			
@@ -134,6 +137,49 @@ public class EjerciciosClase1 {
 				e2.printStackTrace();
 			}
 		}
+		
+	}
+	
+	public static void escribirNuevosFicheros(String ruta, String ruta2, List<String> listaVocal, List<String> listaConsonante) {
+		
+		FileOutputStream fos = null;
+		BufferedWriter daos = null;
+		
+		FileOutputStream fos2 = null;
+		BufferedWriter daos2 = null;
+		
+		try {
+			
+			fos = new FileOutputStream(ruta);
+			daos = new BufferedWriter(new OutputStreamWriter(fos));
+			fos2 = new FileOutputStream(ruta2);
+			daos2 = new BufferedWriter(new OutputStreamWriter(fos2));
+			
+			for (String string : listaVocal) {
+				daos.write(string+"\n");
+			}
+			for (String string : listaConsonante) {
+				daos2.write(string +"\n");
+			}
+			
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}finally {
+			
+			try {
+				daos.close();
+				daos2.close();
+				
+				
+			} catch (IOException e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+		
+		
 		
 	}
 

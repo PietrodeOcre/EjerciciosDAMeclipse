@@ -1,28 +1,26 @@
 package ExamenTema10.Ejercicio3;
 
-public class Local extends Inmueble {
-	public double metros;
+public class Local extends Inmueble{
 
-	public Local(String direccion, int valor, double metros) {
+	private int metrosCuadrados;
+	public Local(String direccion, int valor, int metrosCuadrados) {
 		super(direccion, valor);
-		this.metros = metros;
 		// TODO Auto-generated constructor stub
+		this.metrosCuadrados = metrosCuadrados;
 	}
-	
-	@Override
+
 	public double totalImpuestos() {
-
-		this.impuestoTotal = super.getValor();
 		
-			impuestoTotal = impuestoTotal * ((metros/2)/100);
-
-		return impuestoTotal;
+		double impuestosPadre = super.totalImpuestos() + metrosCuadrados/2;		
+		
+		return impuestosPadre;		
+		
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		return " [direccion=" + direccion + ", valor=" + valor + ", impuestoTotal=" + this.totalImpuestos() + "]\n";
+		return direccion + " con valor= " + valor + " eur " + "e impuesto aplicable de "+totalImpuestos() + " eur";
 	}
-
+	
+	
 }
