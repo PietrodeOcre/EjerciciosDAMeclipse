@@ -12,6 +12,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 public class Tema11Ejercicio9 {
@@ -27,60 +28,89 @@ fichero cuenta con al menos 5 números.
 	
 	public static void main(String[] args) {
 		
-		String rutaString = "/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio9.txt";
+		String rutaString = "/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio9.txt";
 		
-		ordena(rutaString);
+		String[] numero = {"4","6","8","7","4","7","7","4","3","3","6","7","5"};
+ 		escribirStringArchivoBufferedWriter(rutaString, numero);
+ 		leerArchivoBufferedReader(rutaString);
 	}
 	
-	public static void ordena(String ruta) {
+	/*
+	 * metodo para leer un archivo con BufferedReader
+	 */
+	public static void leerArchivoBufferedReader (String ruta) {
 		
-		FileInputStream fisFileInputStream = null;
-		FileOutputStream fosFileOutputStream = null;
-		BufferedReader daisBufferedReader = null;
-		BufferedWriter daosBufferedWriter = null;
-		
-		List<Integer> listaEnterosIntegers = new LinkedList<Integer>();
-		
-		
+		FileInputStream fis = null;
+		BufferedReader dais = null;
+		String cadenaString = null;
+
 		try {
 			
-			fisFileInputStream = new FileInputStream(ruta);
-			daisBufferedReader = new BufferedReader(new InputStreamReader(fisFileInputStream));
+			fis = new FileInputStream(ruta);
+			dais = new BufferedReader(new InputStreamReader(fis));
 			
-			String str = "";
-			Integer enteroInteger = 0;
+			StringTokenizer token;
+			int nDatos=0;
+			Integer[] datos=new Integer[nDatos];
 			
-			
-			while ((str = daisBufferedReader.readLine())!= null) {
-				
-				listaEnterosIntegers.add(Integer.parseInt(str));
-								System.out.println(Integer.parseInt(str));
+			while((cadenaString = dais.readLine()) != null) {
+				cadenaString += dais.readLine();
+				token=new StringTokenizer(cadenaString, "\n");
+				nDatos=token.countTokens();
+				int i=0;
+				while(token.hasMoreTokens()){
+               		Integer str=Integer.parseInt(token.nextToken());
+            		datos[i]=str;
+            		System.out.println(datos[i]);
+            		i++;
+        	   }
 			}
-			
-			Collections.sort(listaEnterosIntegers);
-			
-			fosFileOutputStream = new FileOutputStream(ruta);
-			daosBufferedWriter = new BufferedWriter(new OutputStreamWriter(fosFileOutputStream));
-			
-			for (int i = 0; i < listaEnterosIntegers.size(); i++) {
-				daosBufferedWriter.write(listaEnterosIntegers.get(i));
-			}
-			
-			
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}finally {
 			try {
-				daisBufferedReader.close();
-				daosBufferedWriter.close();
-				
+				dais.close();
 			} catch (IOException e2) {
-				// TODO: handle exception
+				e2.printStackTrace();
 			}finally {
 				
 			}
 		}
 		
+		System.out.println(cadenaString);
+	}
+	
+	/*
+	 * metodo para escribir un String en un archivo con BufferedWriter
+	 */
+	public static void escribirStringArchivoBufferedWriter (String ruta, String[] cadenaString) {
+		
+		FileOutputStream fos = null;
+		BufferedWriter daos = null;
+
+		try {
+			
+			fos = new FileOutputStream(ruta);
+			daos = new BufferedWriter(new OutputStreamWriter(fos));
+
+			for (String string : cadenaString) {
+				daos.write(string +"\n");
+			}
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				daos.close();
+			} catch (IOException e2) {
+				e2.printStackTrace();
+			}finally {
+				
+			}
+		}
+		
+		System.out.println(cadenaString);
 		
 	}
 	
