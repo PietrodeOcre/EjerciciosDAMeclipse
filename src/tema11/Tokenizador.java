@@ -39,9 +39,7 @@ public class Tokenizador {
 			tokList = new ArrayList<String>();
 
 			while ((cadenaString = dais.readLine()) != null) {
-	
-				cadenaString += dais.readLine();
-				
+
 				tokenizador = new StringTokenizer(cadenaString, " ");
 				
 				while (tokenizador.hasMoreTokens()) {
@@ -53,10 +51,7 @@ public class Tokenizador {
 				}
 
 			}		
-			
-			
-			
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -90,8 +85,6 @@ public class Tokenizador {
 			tokList = new HashSet<String>();
 			String cadenaString;
 			while ((cadenaString = dais.readLine()) != null) {
-
-				cadenaString += dais.readLine();
 
 				System.out.println(cadenaString);
 

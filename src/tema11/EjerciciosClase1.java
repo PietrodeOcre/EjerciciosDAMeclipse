@@ -17,14 +17,14 @@ import javax.lang.model.element.NestingKind;
 
 public class EjerciciosClase1 {
 	
-	/*Apartir de un fichero con varias lineas
+	/* Apartir de un fichero con varias lineas
 	 * almacenamos en un fichero las palabras que comiencen con vocal y 
 	 * en otro las que empiezan con consonante
 	 * 
 	 * palabrasd e maximo 4 caracteres
 	 * 
 	 * pasarlos a listas o maps
-*/
+	 */
 	public static void main(String[] args) {
 		
 		String escrituraString = "/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/archivosTemp/frases1.txt";
@@ -51,9 +51,7 @@ public class EjerciciosClase1 {
 			for (int i = 0; i < cadenaString.length; i++) {
 				daos.write(cadenaString[i]);
 			}
-			
-			
-			
+
 		} catch (Exception e) {
 			
 			e.printStackTrace();

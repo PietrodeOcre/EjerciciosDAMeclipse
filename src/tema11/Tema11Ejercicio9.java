@@ -9,11 +9,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.TreeSet;
 
 public class Tema11Ejercicio9 {
 
@@ -28,7 +25,7 @@ fichero cuenta con al menos 5 números.
 	
 	public static void main(String[] args) {
 		
-		String rutaString = "/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio9.txt";
+		String rutaString = "/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio9.txt";
 		
 		String[] numero = {"4","6","8","7","4","7","7","4","3","3","6","7","5"};
  		escribirStringArchivoBufferedWriter(rutaString, numero);
@@ -42,29 +39,36 @@ fichero cuenta con al menos 5 números.
 		
 		FileInputStream fis = null;
 		BufferedReader dais = null;
-		String cadenaString = null;
-
+		String cadenaString;
+		List<Integer> lista = null;
+		StringTokenizer token;
+		
 		try {
 			
 			fis = new FileInputStream(ruta);
 			dais = new BufferedReader(new InputStreamReader(fis));
-			
-			StringTokenizer token;
-			int nDatos=0;
-			Integer[] datos=new Integer[nDatos];
-			
-			while((cadenaString = dais.readLine()) != null) {
-				cadenaString += dais.readLine();
-				token=new StringTokenizer(cadenaString, "\n");
-				nDatos=token.countTokens();
-				int i=0;
-				while(token.hasMoreTokens()){
-               		Integer str=Integer.parseInt(token.nextToken());
-            		datos[i]=str;
-            		System.out.println(datos[i]);
-            		i++;
-        	   }
+			lista = new ArrayList<Integer>();
+			cadenaString = "";
+
+			while ((cadenaString = dais.readLine()) != null) {
+
+				System.out.println(cadenaString);
+				token = new StringTokenizer(cadenaString);
+
+				while (token.hasMoreElements()) {
+
+					lista.add(Integer.parseInt(token.nextToken()));
+
+				}
+
 			}
+
+			Collections.sort(lista);
+			
+			escribirStringArchivoBufferedWriter(ruta, lista.toArray());
+			
+			System.out.println(lista);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -77,13 +81,13 @@ fichero cuenta con al menos 5 números.
 			}
 		}
 		
-		System.out.println(cadenaString);
+		//System.out.println(cadenaString);
 	}
 	
 	/*
 	 * metodo para escribir un String en un archivo con BufferedWriter
 	 */
-	public static void escribirStringArchivoBufferedWriter (String ruta, String[] cadenaString) {
+	public static void escribirStringArchivoBufferedWriter (String ruta, Object[] cadenaString) {
 		
 		FileOutputStream fos = null;
 		BufferedWriter daos = null;
@@ -93,8 +97,12 @@ fichero cuenta con al menos 5 números.
 			fos = new FileOutputStream(ruta);
 			daos = new BufferedWriter(new OutputStreamWriter(fos));
 
-			for (String string : cadenaString) {
-				daos.write(string +"\n");
+			for (int i=0; i<(cadenaString.length); i++) {
+				
+				if (cadenaString[i] !=null) {
+					daos.write(cadenaString[i] +"\n");
+				}
+				
 			}
 			
 
@@ -110,8 +118,15 @@ fichero cuenta con al menos 5 números.
 			}
 		}
 		
-		System.out.println(cadenaString);
+		//System.out.println(cadenaString);
 		
+	}
+	
+	/*
+	 * Retira todo lo que no sea letras minusculas, mayusculas o numeros
+	 */
+	public static String eliminaCaracteresEspeciales(String str) {
+		return str.replaceAll("[^0-9]", "");
 	}
 	
 }

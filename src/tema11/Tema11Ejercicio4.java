@@ -24,6 +24,9 @@ public class Tema11Ejercicio4 {
 		
 	}
 	
+	/*
+	 * Devuelve la última modificacion de un archivo
+	 */
 	public static String ultimaHora(File ruta) {
 		
 	    Date fecha = new Date(ruta.lastModified());

@@ -11,6 +11,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +39,7 @@ public class MetodosFicheros {
 			dais = new BufferedReader(new InputStreamReader(fis));
 
 			while((cadenaString = dais.readLine()) != null) {
-				cadenaString += dais.readLine();
+				
 			}
 
 		} catch (Exception e) {
@@ -280,6 +283,38 @@ public class MetodosFicheros {
 	}
 	
 	/*
+	 * Devuelve un Strin con la ruta desde donde se ejecuta nuestro java
+	 */
+	private static String directorioActual() {
+		File miDir = new File(".");
+		String ruta ="";
+		try {
+			System.out.println("Directorio actual: " + miDir.getCanonicalPath());
+			ruta = miDir.getCanonicalPath();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ruta;
+	}
+	
+	/*
+	 * Crear un directorio en la ruta que le indiquemos, devuelve la ruta completa a dicho directorio
+	 * (Funciona en Linux y Windows)
+	 */
+	public static String crearDirectorioPruebas(String ruta, String directorio) {
+		String rutaFinal= ruta+"/"+directorio;		
+		File actual = new File(rutaFinal);		
+		actual.mkdir();		
+		try {
+			rutaFinal = actual.getCanonicalPath();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return rutaFinal;
+	}
+	
+	/*
 	 * Devuelve una lista con las palabras de un archivo
 	 */
 	public static List<String> tokenizador(String ruta) {
@@ -298,8 +333,6 @@ public class MetodosFicheros {
 			tokList = new ArrayList<String>();
 
 			while ((cadenaString = dais.readLine()) != null) {
-	
-				cadenaString += dais.readLine();
 				
 				tokenizador = new StringTokenizer(cadenaString, " ");
 				
@@ -346,8 +379,6 @@ public class MetodosFicheros {
 			tokList = new HashSet<String>();
 
 			while ((cadenaString = dais.readLine()) != null) {
-	
-				cadenaString += dais.readLine();
 				
 				tokenizador = new StringTokenizer(cadenaString, " ");
 				
@@ -395,10 +426,8 @@ public class MetodosFicheros {
 			mapaInicial = new TreeMap<String, String>();
 			String aux1 = "";
 			String aux2 = "";
-			int cont = 0;
-			
+
 			while((cadenaString = dais.readLine()) != null) {
-				cadenaString += dais.readLine();
 				token = new StringTokenizer(cadenaString ," \n");
 				while (token.hasMoreTokens()) {
 					
@@ -427,22 +456,15 @@ public class MetodosFicheros {
 	/*
 	 * metodo para escribir un mapa de String en un archivo con BufferedWriter
 	 */
-	public static void escribirArrayStringArchivoBufferedWriter (String ruta, Map<String, String> mapa) {
-		
+	public static void escribirArrayStringArchivoBufferedWriter (String ruta, Map<String, String> mapa) {		
 		FileOutputStream fos = null;
 		BufferedWriter daos = null;
-
-		try {
-			
+		try {			
 			fos = new FileOutputStream(ruta);
 			daos = new BufferedWriter(new OutputStreamWriter(fos));
-
-			for (Entry<String, String> entry: mapa.entrySet()) {
-				
+			for (Entry<String, String> entry: mapa.entrySet()) {				
 				daos.write(entry.getKey() + " "+ entry.getValue() + "\n");
 			}
-			
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -454,11 +476,30 @@ public class MetodosFicheros {
 				
 			}
 		}
-		
 		//System.out.println(mapaFinal);
-		
 	}
 	
-	
+	/*
+	 * Devuelve la última modificacion de un archivo
+	 */
+	public static String ultimaHora(File ruta) {
+		
+	    Date fecha = new Date(ruta.lastModified());
+	    Calendar calendario = new GregorianCalendar();
+	    calendario.setTime(fecha);
+	    
+	    String dia = Integer.toString(calendario.get(Calendar.DATE));
+	    String mes = Integer.toString(calendario.get(Calendar.MONTH));
+	    String annio = Integer.toString(calendario.get(Calendar.YEAR));
+	    String hora = Integer.toString(calendario.get(Calendar.HOUR_OF_DAY));
+	    String minuto = Integer.toString(calendario.get(Calendar.MINUTE));
+	    String segundo = Integer.toString(calendario.get(Calendar.SECOND));
+	    
+	    
+	    String horaString = "última modificación a las "+ hora + " horas y "+ minuto + " minutos";
+	    
+		return horaString;
+
+	}
 	
 }
