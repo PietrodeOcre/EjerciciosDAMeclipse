@@ -13,8 +13,11 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.TreeMap;
+import java.util.Map.Entry;
 
 public class MetodosFicheros {
 
@@ -372,6 +375,89 @@ public class MetodosFicheros {
 		return tokList;
 	}
 	
+	
+	/*
+	 * Método para leer un archivo con BufferedReader que devuelve un mapa
+	 */
+	public static Map<String, String> leerArchivoBufferedReaderMap(String ruta) {
+		
+		FileInputStream fis = null;
+		BufferedReader dais = null;
+		String cadenaString = null;
+		Map<String, String> mapaInicial = null;
+		StringTokenizer token = null;
+
+		try {
+			
+			fis = new FileInputStream(ruta);
+			dais = new BufferedReader(new InputStreamReader(fis));
+			
+			mapaInicial = new TreeMap<String, String>();
+			String aux1 = "";
+			String aux2 = "";
+			int cont = 0;
+			
+			while((cadenaString = dais.readLine()) != null) {
+				cadenaString += dais.readLine();
+				token = new StringTokenizer(cadenaString ," \n");
+				while (token.hasMoreTokens()) {
+					
+						aux1 = token.nextToken();
+						aux2 = token.nextToken();
+						mapaInicial.put(aux1, aux2);
+				}
+				
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				dais.close();
+			} catch (IOException e2) {
+				e2.printStackTrace();
+			}finally {
+				
+			}
+		}
+
+		return mapaInicial;
+	}
+	
+	/*
+	 * metodo para escribir un mapa de String en un archivo con BufferedWriter
+	 */
+	public static void escribirArrayStringArchivoBufferedWriter (String ruta, Map<String, String> mapa) {
+		
+		FileOutputStream fos = null;
+		BufferedWriter daos = null;
+
+		try {
+			
+			fos = new FileOutputStream(ruta);
+			daos = new BufferedWriter(new OutputStreamWriter(fos));
+
+			for (Entry<String, String> entry: mapa.entrySet()) {
+				
+				daos.write(entry.getKey() + " "+ entry.getValue() + "\n");
+			}
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				daos.close();
+			} catch (IOException e2) {
+				e2.printStackTrace();
+			}finally {
+				
+			}
+		}
+		
+		//System.out.println(mapaFinal);
+		
+	}
 	
 	
 	

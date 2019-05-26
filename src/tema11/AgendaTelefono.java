@@ -64,6 +64,20 @@ public class AgendaTelefono {
 		iniciarRegistro(agendaTelefonica, "Javier", "91543348");
 		System.out.println(iniciarRegistro(agendaTelefonica, "Jose", "91543349"));
 		*/	
+		programaInicio(ruta, agendaTelefonica, agendaTelefonicaAux);
+		//System.out.println(leerArchivoBufferedReader(ruta));
+		//System.out.println(agendaTelefonica);
+		//escribirArrayStringArchivoBufferedWriter(ruta, agendaTelefonica);
+		//System.out.flush();
+	}
+
+	
+	/*
+	 * Método del Menú
+	 */
+	private static void programaInicio(String ruta, Map<String, String> agendaTelefonica,
+			Map<String, String> agendaTelefonicaAux) {
+		String opcion;
 		do {
 			System.out.print("");
 			System.out.flush();
@@ -116,10 +130,6 @@ public class AgendaTelefono {
 				break;
 			}	
 		}while(opcion!="5");
-		//System.out.println(leerArchivoBufferedReader(ruta));
-		//System.out.println(agendaTelefonica);
-		//escribirArrayStringArchivoBufferedWriter(ruta, agendaTelefonica);
-		//System.out.flush();
 	}
 	
 	/*

@@ -9,8 +9,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Tema11Ejercicio9 {
 
@@ -25,7 +27,7 @@ fichero cuenta con al menos 5 números.
 	
 	public static void main(String[] args) {
 		
-		String rutaString = "/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio9.txt";
+		String rutaString = "/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/Ejercicio7/ejercicio9.txt";
 		
 		ordena(rutaString);
 	}
@@ -37,7 +39,7 @@ fichero cuenta con al menos 5 números.
 		BufferedReader daisBufferedReader = null;
 		BufferedWriter daosBufferedWriter = null;
 		
-		List<Integer> listaEnterosIntegers = new ArrayList<Integer>();
+		List<Integer> listaEnterosIntegers = new LinkedList<Integer>();
 		
 		
 		try {
@@ -48,10 +50,11 @@ fichero cuenta con al menos 5 números.
 			String str = "";
 			Integer enteroInteger = 0;
 			
+			
 			while ((str = daisBufferedReader.readLine())!= null) {
 				
 				listaEnterosIntegers.add(Integer.parseInt(str));
-								
+								System.out.println(Integer.parseInt(str));
 			}
 			
 			Collections.sort(listaEnterosIntegers);
