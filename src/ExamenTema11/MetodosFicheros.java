@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -501,5 +502,61 @@ public class MetodosFicheros {
 		return horaString;
 
 	}
+	
+	
+	/*
+	 * metodo para leer un archivo con BufferedReader que muestra cadenas con un minimo de caracteres
+	 */
+	public static void leerBufferedReaderMinimoLetras (String ruta) {
+		
+		FileInputStream fis = null;
+		BufferedReader dais = null;
+		String cadenaString = null;
+		Map<String, Integer> maxCadena = null;
+		try {
+			
+			fis = new FileInputStream(ruta);
+			dais = new BufferedReader(new InputStreamReader(fis));
+
+			StringTokenizer cadenaUni;
+			maxCadena = new HashMap<String, Integer>();
+			String auxString;
+			while((cadenaString = dais.readLine()) != null) {
+				
+				cadenaUni = new StringTokenizer(cadenaString);
+				
+				while(cadenaUni.hasMoreElements()) {
+					
+					auxString = cadenaUni.nextToken();
+					
+					maxCadena.put(auxString, auxString.length());
+				}
+
+			}
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				dais.close();
+			} catch (IOException e2) {
+				e2.printStackTrace();
+			}finally {
+				
+			}
+		}
+
+		System.out.println(maxCadena);
+		
+		for (Entry<String, Integer> entrada : maxCadena.entrySet()) {
+
+			if (entrada.getValue() >= 4) {
+				System.out.println(entrada.getKey());
+			}
+
+		}
+
+	}
+	
 	
 }

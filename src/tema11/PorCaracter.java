@@ -8,6 +8,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.StringTokenizer;
+import java.util.Map.Entry;
 
 public class PorCaracter {
 	
@@ -23,9 +28,9 @@ public class PorCaracter {
 		File dir = new File("/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/archivosficheros/directorio/");
 		String cadena = "Esta cadena es la que tendrá que leer el siguiente método, que lo lea y luego me diga que tal todo.";
 		dir.mkdir();
-		escribirStringArchivoBufferedWriter(ruta, cadena);
+		//escribirStringArchivoBufferedWriter(ruta, cadena);
 		
-		
+		leerArchivoBufferedReader(ruta);
 	}
 	
 	/*
@@ -37,23 +42,35 @@ public class PorCaracter {
 	
 	
 	/*
-	 * metodo para leer un archivo con BufferedReader
+	 * metodo para leer un archivo con BufferedReader que muestra cadenas con un minimo de caracteres
 	 */
 	public static void leerArchivoBufferedReader (String ruta) {
 		
 		FileInputStream fis = null;
 		BufferedReader dais = null;
 		String cadenaString = null;
-
+		Map<String, Integer> maxCadena = null;
 		try {
 			
 			fis = new FileInputStream(ruta);
 			dais = new BufferedReader(new InputStreamReader(fis));
 
+			StringTokenizer cadenaUni;
+			maxCadena = new HashMap<String, Integer>();
+			String auxString;
 			while((cadenaString = dais.readLine()) != null) {
 				
-			}
+				cadenaUni = new StringTokenizer(cadenaString);
+				
+				while(cadenaUni.hasMoreElements()) {
+					
+					auxString = cadenaUni.nextToken();
+					
+					maxCadena.put(auxString, auxString.length());
+				}
 
+			}
+	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -65,8 +82,17 @@ public class PorCaracter {
 				
 			}
 		}
+
+		System.out.println(maxCadena);
 		
-		System.out.println(cadenaString);
+		for (Entry<String, Integer> entrada : maxCadena.entrySet()) {
+
+			if (entrada.getValue() >= 4) {
+				System.out.println(entrada.getKey());
+			}
+
+		}
+
 	}
 	
 	/*
@@ -96,7 +122,7 @@ public class PorCaracter {
 			}
 		}
 		
-		System.out.println(cadenaString);
+		//System.out.println(cadenaString);
 		
 	}
 
