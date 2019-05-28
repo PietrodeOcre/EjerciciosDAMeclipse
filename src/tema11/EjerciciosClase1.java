@@ -29,7 +29,7 @@ public class EjerciciosClase1 {
 		
 		String escrituraString = "/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/archivosTemp/frases1.txt";
 		String escrituraString2 = "/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/archivosficheros/frases1.txt";
-		crearFichero(escrituraString2);
+		//crearFichero(escrituraString2);
 		lectura(escrituraString2);
 
 	}
@@ -68,7 +68,10 @@ public class EjerciciosClase1 {
 		}
 	}
 	
-	
+	/*
+	 * Separa palabras de un archivo creado con BufferedWriter 
+	 * por su primer caracter
+	 */
 	public static void lectura(String ruta) {
 		
 		FileInputStream fis =null;
@@ -78,8 +81,7 @@ public class EjerciciosClase1 {
 		StringTokenizer strTokenizer = null;
 		List<String> vocales = null;
 		List<String> consonantes = null;
-		
-		
+
 		try {
 			
 			fis = new FileInputStream(ruta);
@@ -108,23 +110,16 @@ public class EjerciciosClase1 {
 					}else {
 						consonantes.add(ini);
 					}
-					//System.out.println(palabraFichero);
-					
-					
-					
+	
 				}
 			}
 			
 			String ruta1 = "/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/archivosficheros/vocales.txt";
 			String ruta2 = "/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/archivosficheros/consonantes.txt";
 			escribirNuevosFicheros(ruta1, ruta2, vocales, consonantes);
-			
-			
-			
+
 			System.out.println(vocales);
 			System.out.println(consonantes);
-			//System.out.println(strList);
-			//System.out.println(strTokenizer.toString());
 			
 		} catch (Exception e) {
 			e.printStackTrace();

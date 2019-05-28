@@ -559,4 +559,70 @@ public class MetodosFicheros {
 	}
 	
 	
+	/*
+	 * Separa palabras de un archivo creado con BufferedWriter 
+	 * por su primer caracter creando dos listas.
+	 */
+	public static void lectura(String ruta) {
+		
+		FileInputStream fis =null;
+		BufferedReader dais= null;
+		List<String> strList = null;
+		String string =null;
+		StringTokenizer strTokenizer = null;
+		List<String> vocales = null;
+		List<String> consonantes = null;
+
+		try {
+			
+			fis = new FileInputStream(ruta);
+			dais = new BufferedReader(new InputStreamReader(fis));
+			strList = new ArrayList<String>();
+			string = "";
+			vocales = new ArrayList<String>();
+			consonantes = new ArrayList<String>();
+			
+			while ((string = dais.readLine())!=null) {
+				//string = dais.readLine();
+				strList.add(string);
+
+			}
+			
+			
+			for (String string2 : strList) {
+				strTokenizer = new StringTokenizer(string2);
+				String palabraFichero ="";
+				String ini="";
+				while(strTokenizer.hasMoreTokens()) {
+					ini = strTokenizer.nextToken();
+					
+					if(ini.charAt(0) == 'a'|| ini.charAt(0) == 'e' || ini.charAt(0) == 'i' || ini.charAt(0) == 'o' || ini.charAt(0) == 'u') {
+						vocales.add(ini);
+					}else {
+						consonantes.add(ini);
+					}
+	
+				}
+			}
+			
+			//String ruta1 = "/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/archivosficheros/vocales.txt";
+			//String ruta2 = "/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/archivosficheros/consonantes.txt";
+			//escribirNuevosFicheros(ruta1, ruta2, vocales, consonantes);
+
+			System.out.println(vocales);
+			System.out.println(consonantes);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				dais.close();
+			} catch (IOException e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+	}
+	
+	
 }
