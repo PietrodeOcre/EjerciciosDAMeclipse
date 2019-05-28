@@ -1,20 +1,17 @@
 package tema11;
 
-import java.io.BufferedReader;
 import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.Flushable;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class Tema11Ejercicio12 {
 
 	public static void main(String[] args) {
 		
-		File rutaFile = new File("/home/pietrodeocre/Documentos/gradomedio/GradoSuperior/PROG/Tema11/Ejercicio7");
+		System.out.println(args[0]);
+
+		File rutaFile = new File("/home/pietrodeocre/Documentos/GradoSuperior/PROG/Tema11/Ejercicio7");
 		
 		ficherosEnDirectorio(rutaFile);
 		
@@ -40,9 +37,6 @@ public class Tema11Ejercicio12 {
 				cadenaString += dais.readUTF();
 				cont++;
 			}
-			
-			
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,7 +60,6 @@ public class Tema11Ejercicio12 {
 				System.out.println(file2.getPath());
 				leerArchivoBufferedReader(file2.getPath());
 			}
-			
 		}
 	}
 	
