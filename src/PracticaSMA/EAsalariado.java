@@ -1,4 +1,4 @@
-package SMA;
+package PracticaSMA;
 
 import java.sql.Date;
 import java.time.Year;

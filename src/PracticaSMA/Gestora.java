@@ -1,4 +1,4 @@
-package SMA;
+package PracticaSMA;
 
 import java.util.Arrays;
 
