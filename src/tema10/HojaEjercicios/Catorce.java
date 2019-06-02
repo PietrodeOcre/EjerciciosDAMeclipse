@@ -39,7 +39,9 @@ public static List<Integer> obtieneListaModa(List<Integer> listaElementos)
 	}
 	
 	
-	
+	/*
+	 * Obtiene la moda de una lista de números
+	 */
 	public static List<Integer> obtieneListaModa(List<Integer> listaElementos){
 		int maximasRepeticiones = 2;
 		HashSet<Integer> aux = new HashSet<Integer>();

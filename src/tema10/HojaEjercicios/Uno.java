@@ -35,14 +35,15 @@ public class Uno {
 		
 	}
 	
-	public static void eliminaParesArrayList(ArrayList<String> listaCadenas) {
-		
+	/*
+	 * Elimina elementos Pares
+	 */
+	public static void eliminaParesArrayList(ArrayList<String> listaCadenas) {		
 		for(int i = listaCadenas.size()-1; i>=0; i--) {
 			if(i%2==0) {
 				listaCadenas.remove(i);
 			}
-		}
-		
+		}		
 		for(int i = 0; i< listaCadenas.size(); i++) {
 			System.out.println(listaCadenas.get(i));
 		}

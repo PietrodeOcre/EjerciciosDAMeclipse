@@ -35,14 +35,13 @@ countUnique(List<Integer> listaEnteros)
 		
 	}
 	
-	public static int countUnique(List<Integer> listaEnteros) {
-		
-		HashSet<Integer> lista = new HashSet<Integer>();
-		
+	/*
+	 * Devuelve el número de elementos únicos de una lista
+	 */
+	public static int countUnique(List<Integer> listaEnteros) {		
+		HashSet<Integer> lista = new HashSet<Integer>();		
 		lista.addAll(listaEnteros);
-
-		return lista.size();
-			
+		return lista.size();		
 	}
 	
 }

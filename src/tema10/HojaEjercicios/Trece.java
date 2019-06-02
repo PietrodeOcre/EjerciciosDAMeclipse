@@ -33,19 +33,17 @@ public static Set<String> listaAsociadaNumeroPar(Map<String, Integer> map)
 		
 	}
 	 
-	
-	public static Set<String> listaAsociadaNumeroPar(Map<String, Integer> map){
-		
-		Set<String> pares = new HashSet<>();
-		
+	/*
+	 * DEvuelve una colección de cadenas suyo valor en el mapa es par
+	 */
+	public static Set<String> listaAsociadaNumeroPar(Map<String, Integer> map){		
+		Set<String> pares = new HashSet<>();		
 		for(Entry<String, Integer> entry: map.entrySet()) {
 			if(entry.getValue()%2 == 0) {
 				pares.add(entry.getKey());
 			}
-		}
-		
-		return pares;
-		
+		}		
+		return pares;		
 	}
 	
 }

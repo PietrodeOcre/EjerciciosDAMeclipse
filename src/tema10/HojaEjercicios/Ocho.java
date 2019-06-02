@@ -12,10 +12,8 @@ public class Ocho {
 	 * public static int maxLength(Set<String> setStrs)
 	 */
 	
-	public static void main(String[] args) {
-		
-		Set<String> listado = new HashSet<String>();
-		
+	public static void main(String[] args) {		
+		Set<String> listado = new HashSet<String>();		
 		listado.add("Manuel");
 		listado.add("Javier");
 		listado.add("Pedro");
@@ -24,18 +22,15 @@ public class Ocho {
 		listado.add("Sabrina");
 		listado.add("Maria");
 		listado.add("Alejandro");
-		listado.add("Carlos");
-		
-		
-		System.out.println(maxLength(listado));
-		
-		
+		listado.add("Carlos");		
+		System.out.println(maxLength(listado));		
 	}
 
+	/*
+	 * Retorna longitud de la cadena mas larga de una lista
+	 */
 	public static int maxLength(Set<String> setStrs) {
-	
 		String varAux = "";
-		
 		if(setStrs.isEmpty()) {
 			return 0;
 		}else {
@@ -46,7 +41,6 @@ public class Ocho {
 			}
 			return varAux.length();
 		}
-
 	}
 	
 }

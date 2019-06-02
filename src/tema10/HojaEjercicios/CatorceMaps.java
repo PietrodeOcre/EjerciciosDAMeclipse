@@ -46,6 +46,10 @@ Hacer esta pero con Maps
 		
 	}
 	
+	
+	/*
+	 * Devuelve lista de moda de una lista de números usando mapas
+	 */
 	public static List<Integer> obtieneListaModa(List<Integer> listaElementos){
 		
 		List<Integer> listaRetornoIntegers = new ArrayList<Integer>();

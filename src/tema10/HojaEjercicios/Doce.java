@@ -28,8 +28,10 @@ public static Map<String,Integer> retornaMapAsociado(List<String> listaStr)
 		
 	}
 	
-	public static Map<String,Integer> retornaMapAsociado(List<String> listaStr){
-		
+	/*
+	 * Devuelve un map con las cadenas y el numero de veces que se repite en la lista
+	 */
+	public static Map<String,Integer> retornaMapAsociado(List<String> listaStr){		
 		Map<String,Integer> mapaAsociado = new HashMap<>();
 		for (String lista : listaStr) {
 			if (mapaAsociado.containsKey(lista)) {
@@ -38,9 +40,7 @@ public static Map<String,Integer> retornaMapAsociado(List<String> listaStr)
 				mapaAsociado.put(lista, 1);
 			}
 		}
-
-		return mapaAsociado;
-		
+		return mapaAsociado;		
 	}
 	
 }

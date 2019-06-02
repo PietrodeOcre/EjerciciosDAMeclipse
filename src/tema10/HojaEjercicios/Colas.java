@@ -7,6 +7,7 @@ import java.util.Random;
 
 import javax.swing.JOptionPane;
 
+
 public class Colas{
 	
 	/*
@@ -32,19 +33,26 @@ public class Colas{
 		for (int i=1; i<4; i++) {
 			int num = rd.nextInt(6)+1;
 			System.out.println(cola.add(array[num]));
-			//escribirMensaje(cola);
+			escribirMensaje(cola);
 			//System.out.println(cola);
 			//System.out.println(cola.poll());
 			//System.out.println(cola);
 		}
 		//System.out.println(cola);
 		
-		while(!cola.isEmpty()) {
-			System.out.println("Vamos a tratar al Cliente: " + cola.poll());
-		}
+		tratamientoCola(cola);
 		
 		//escribirMensaje(cola);
 		//System.out.println(cola);
+	}
+	
+	/*
+	 * Método para tratamiento de colas
+	 */
+	private static void tratamientoCola(Queue<String> cola) {
+		while(!cola.isEmpty()) {
+			System.out.println("Vamos a tratar al Cliente: " + cola.poll());
+		}
 	}
 	
 	public static void escribirMensaje(Queue<String> cola){

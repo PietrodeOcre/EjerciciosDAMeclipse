@@ -32,11 +32,12 @@ public class Quince {
     System.out.println(retornaElementosSinRepeticion(listaElementos));
   }
   
+  
   public static Set<Integer> retornaElementosSinRepeticion(Collection<Integer> listaElementos){
-    Set<Integer> aux = new TreeSet<>();
+    /*Set<Integer> aux = new TreeSet<>();
     for (Integer integer : listaElementos) {
       aux.add(integer);
-    }
-    return aux;
+    }*/
+    return new TreeSet<>(listaElementos);
   }
 }
