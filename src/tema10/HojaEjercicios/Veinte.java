@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import ExamenTema10.Dos.Colecciones;
+
 public class Veinte {
 	
 	/*
@@ -46,36 +48,8 @@ public class Veinte {
 		if(listaTemp.size()%4==0) {
 			numTemp = listaTemp.size()/4;
 		}
-		
+	
 		int cont = 0;
-		
-		/*
-		//for (int i = 0; i < 4; i++) {
-			if(listaTemp.subList(0, numTemp).contains(max)) {
-				estacion = "Primavera";
-			}
-			if(listaTemp.subList(numTemp, numTemp+2).contains(max)) {
-				estacion = "Verano";
-			}
-			if(listaTemp.subList(numTemp, numTemp+2).contains(max)) {
-				estacion = "Otoño";
-			}
-			if(listaTemp.subList(numTemp, numTemp+2).contains(max)) {
-				estacion = "Invierno";
-			}*/
-		//}
-		/*if(cont == 1) {
-			estacion = "Primavera";
-		}
-		if(cont == 2) {
-			estacion = "Verano";
-		}
-		if(cont == 3) {
-			estacion = "Otoño";
-		}
-		if(cont == 4) {
-			estacion = "Invierno";
-		}*/
 		
 		ArrayList<String> estaciones = new ArrayList<String>();
 		estaciones.add("Primavera");
@@ -84,16 +58,14 @@ public class Veinte {
 		estaciones.add("Invierno");
 		
 		for (String aux: estaciones) {
-			for (int i = 0; i < numTemp; i++) {
-				if(listaTemp.get(cont)==mas) {
-					//System.out.println("La maxima estacion es" + Collections.max(mas));
-					
+			for (int i = 1; i <= numTemp; i++) {
+				if(listaTemp.get(i+cont) == mas) {
+					return estaciones.get(i);	
 				}
 			}
-		}
-		
-		return estacion;
-		
+			cont+=2;
+		}		
+		return estacion;		
 	}
 	
 }

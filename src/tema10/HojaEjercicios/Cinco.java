@@ -91,7 +91,7 @@ public class Cinco {
 			lista1.add(i);
 		}
 		
-		long ini = System.currentTimeMillis();
+		long ini = tiampoInicial();
 		lista1.add((lista1.size()/2), 334);
 		System.out.println("Elemento de la mitad: ");
 		lista1.add((lista1.size()/2), 334);
@@ -100,13 +100,31 @@ public class Cinco {
 		//lista1.remove(0);
 				
 		
-		long fin = System.currentTimeMillis();
-		System.out.println("Tiempo: " + (fin-ini));
+		tiempoFinal(ini);
 		
 		
 		//Es mas rapido el ArrayList siempre.recordad 
 		//chicos arraylist mas rapido que linkedlist y 
 		//hashset mas rapido que treeSEt
+	}
+	
+	
+	/*
+	 * Requiere método tiempoInicial()
+	 * Devuelve el tiempo en milisegundos transcurridos desde 
+	 * tiempoInicial() hasta tiempo Final
+	 */
+	private static void tiempoFinal(long ini) {
+		long fin = System.currentTimeMillis();
+		System.out.println("Tiempo: " + (fin-ini));
+	}
+
+	/*
+	 * Devuelve el tiempo antes de comenzar una tarea
+	 */
+	private static long tiampoInicial() {
+		long ini = System.currentTimeMillis();
+		return ini;
 	}
 	
 	private static long aletorio(List<Integer> vector){
@@ -124,6 +142,9 @@ public class Cinco {
         return lamitad;
     }
 	
+	/*
+	 * Realiza búsquedas binarias en listas
+	 */
 	private static int busquedaBinaria(List<Integer> vector,int posInicial, int posFinal, int elemento) {
         //Método para realizar busquedas binarias en vectores de enteros
         //Devuelve -1 y si no encuentra el elemento dentro del array

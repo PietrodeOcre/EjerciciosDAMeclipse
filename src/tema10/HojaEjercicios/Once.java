@@ -37,6 +37,10 @@ public static Map<String,Integer> reverse(Map<Integer, String> mapStr)
 
 	}
 
+	
+	/*
+	 * Devuelve el último valor iterado sin repeticiones
+	 */
 	public static Map<String,Integer> reverse(Map<Integer, String> mapStr){
 		
 		Map<String,Integer> mapStr2 = new HashMap<>();

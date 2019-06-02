@@ -38,11 +38,14 @@ public class Siete {
 		frase.add("a");
 		frase.add("a");
 	
-		System.out.println(eliminaDuplicados2(frase));
+		System.out.println(eliminaDuplicados(frase));
 		
 
 	}
 
+	/*
+	 * Elimina Duplicados de una lista
+	 */
 	public static ArrayList<String> eliminaDuplicados(ArrayList<String> frase){
 		
 	    LinkedHashSet<String> hs = new LinkedHashSet<>();

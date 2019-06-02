@@ -34,6 +34,10 @@ public class Dos {
 		
 	}
 
+	/*
+	 * Coloca en la posicion 0 de una lista el elemento menor
+	 * de la misma
+	 */
 	public static void intercambioPos(List<Integer> arrayUno) {
 		Integer menorElemento = Collections.min(arrayUno);
 		int pos = arrayUno.indexOf(menorElemento);
