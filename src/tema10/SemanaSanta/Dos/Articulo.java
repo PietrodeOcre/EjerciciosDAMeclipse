@@ -61,8 +61,6 @@ public class Articulo implements Comparable{
 	//CompareTo
 	@Override
 	public int compareTo(Object articulo) {
-		
-		// TODO Auto-generated method stub
 		return (int)precio-(int)((Articulo) articulo).precio;
 	}
 	

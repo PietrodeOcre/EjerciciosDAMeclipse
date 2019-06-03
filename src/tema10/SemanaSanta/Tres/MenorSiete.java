@@ -28,13 +28,7 @@ public class MenorSiete {
 	
 	public static void main(String[] args) {
 		
-		TreeSet<Integer> listaNumero = new TreeSet<Integer>(new Comparator<Integer>() {
-			@Override
-			public int compare(Integer s1, Integer s2) {
-				
-				return s2.compareTo(s1);
-			}
-		});
+		TreeSet<Integer> listaNumero = comparatorMetodo();
 		
 		aniadeNum(listaNumero);
 		//Al cambiar el comparator en el treeset los headSet y el tailSet se muestran alreves...
@@ -42,6 +36,20 @@ public class MenorSiete {
 		//System.out.println(listaNumero.headSet(7));//muestra os que son menor que 7
 		//System.out.println(listaNumero.tailSet(7));//muestra os que son igual o mayor que 7
 		
+	}
+
+	/*
+	 * Implementación de comparator en un TreeSet
+	 */
+	private static TreeSet<Integer> comparatorMetodo() {
+		TreeSet<Integer> listaNumero = new TreeSet<Integer>(new Comparator<Integer>() {
+			@Override
+			public int compare(Integer s1, Integer s2) {
+				
+				return s2.compareTo(s1);
+			}
+		});
+		return listaNumero;
 	}
 	
 }

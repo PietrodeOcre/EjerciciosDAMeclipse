@@ -6,10 +6,16 @@ import java.util.Queue;
 import java.util.Random;
 import java.util.TreeSet;
 import java.util.Map.Entry;
+
+import ExamenTema10.Dos.Municipio;
+import tema10.SemanaSanta.Cuatro.Persona;
+import tema10.SemanaSanta.Dos.Articulo;
+
 import java.util.Set;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 public class LibreriaListasDinamicas {
@@ -388,6 +394,89 @@ public class LibreriaListasDinamicas {
 			}
 		}
 		return mapAux;		
+	}
+	
+	/*
+	 * Aplicar compareTo con 3 atributos
+	 */
+	public int compareTo(Municipio o) {
+		// TODO Auto-generated method stub
+		int comparacion = this.provincia.compareTo(o.provincia);
+		if (comparacion != 0)
+			return comparacion;
+		else {
+			int comparacionMunicipio = this.municipio.compareTo(o.municipio);
+			
+			if (comparacionMunicipio == 0) {
+				return anoCenso - o.anoCenso;
+			}
+			return comparacionMunicipio;
+		}
+	}
+	
+	/*
+	 * Aplicar compareTo con 1 atributo
+	 */
+	public int compareTo(Municipio o) {
+		// TODO Auto-generated method stub
+		int comparacion = this.provincia.compareTo(o.provincia);		
+		return comparacion;		
+	}
+	
+	/*
+	 * Ejemplo de CompareTo con Object y orden descendente
+	 */
+	public int compareTo(Object persona) {
+		return -this.apellido.compareTo(((Persona)persona).getApellido());
+	}
+	
+	/*
+	 * Implementación de comparator en un TreeSet
+	 */
+	private static TreeSet<Integer> comparatorMetodo() {
+		TreeSet<Integer> listaNumero = new TreeSet<Integer>(new Comparator<Integer>() {
+			@Override
+			public int compare(Integer s1, Integer s2) {
+				
+				return s2.compareTo(s1);
+			}
+		});
+		return listaNumero;
+	}
+	
+	/*
+	 * Ejemplo de Equals
+	 */
+	public boolean equals(Object obj) {
+		if(
+			(obj == null) &&
+			(obj instanceof Persona) &&	
+			(((Persona)obj).id == this.id) &&
+			(((Persona)obj).nombre.equals(this.nombre)) &&
+			(((Persona)obj).apellido.equals(this.apellido)) 
+				) {
+			return true;
+		}
+		return false;
+	}
+	
+	/*
+	 * Otro ejemplo de Equals
+	 */
+	public boolean equals(Object obj) {
+		if ((obj instanceof Articulo) && 
+				((Articulo)obj).ref.equals(this.ref) && 
+				((Articulo)obj).nombre.equals(this.nombre)) {
+			return true;
+		}
+		return false;
+	}
+	
+	/*
+	 * Ejemplo de HashCode
+	 */
+	public int hashCode() {
+		return apellido.hashCode();
 	}
 	
 }
