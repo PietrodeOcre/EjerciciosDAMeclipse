@@ -27,6 +27,8 @@ public class LibreriaListasDinamicas {
 	 * HashMap
 	 * TreeMap
 	 * -Ordenados (implementa Cloneable)
+	 * Siempre que hay compare, hay 
+	 * implementacion de 
 	 * 
 	 * -Duplicados
 	 * ArrayList
@@ -34,7 +36,12 @@ public class LibreriaListasDinamicas {
 	 * Queue
 	 * 
 	 * herencia -> Extends
+	 * Abstract 
+	 * atributos y metodos, no constructores
 	 * interfaces -> Implements
+	 * Interface
+	 * métodos sin cuerpo
+	 * palabra Default, no constructores
 	 */
 	
 	/*
@@ -428,6 +435,14 @@ public class LibreriaListasDinamicas {
 	 */
 	public int compareTo(Object persona) {
 		return -this.apellido.compareTo(((Persona)persona).getApellido());
+	}
+	
+	/*
+	 * Otro ejemplo de compare
+	 */
+	public int compare(Integer s1, Integer s2) {
+		
+		return s2.compareTo(s1);
 	}
 	
 	/*
