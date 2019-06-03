@@ -15,6 +15,23 @@ import java.util.HashMap;
 public class LibreriaListasDinamicas {
 	
 	/*
+	 * -No duplicados
+	 * HashSet
+	 * TreeSet
+	 * HashMap
+	 * TreeMap
+	 * -Ordenados (implementa Cloneable)
+	 * 
+	 * -Duplicados
+	 * ArrayList
+	 * LinkedList
+	 * Queue
+	 * 
+	 * herencia -> Extends
+	 * interfaces -> Implements
+	 */
+	
+	/*
 	 * Devuelve un HashSet de un Array de cadenas
 	 */
 	public static Set<String> devuelveSetDesordenado(String[] cadenas){		
@@ -344,6 +361,33 @@ public class LibreriaListasDinamicas {
 		return pares;		
 	}
 	
-
+	/*
+	 * Devuelve la misma lista de ArrayList pero sin elementos repetidos
+	 */
+	public static ArrayList<String> eliminaDuplicados(List<String> listaCadenaList){
+		
+		Set<String> dupliSet = new HashSet<String>(listaCadenaList);
+		listaCadenaList.clear();
+		listaCadenaList = new ArrayList<String>(dupliSet);
+		
+		return (ArrayList<String>) listaCadenaList;
+	}
+	
+	/*
+	 * Cuenta el numero de veces que aparece una palabra en una lista
+	 * (Serviria para decir cuantas veces se repite una palabra en un texto)
+	 */
+	public static Map<String,Integer> retornaMapAsociado(List<String> listaStr){		
+		Map<String, Integer> mapAux = new HashMap<String, Integer>();
+		int cont = 0;
+		for (String string : listaStr) {			
+			if (listaStr.contains(string)) {
+				mapAux.put(string, cont++);
+			}else {
+				mapAux.put(string, 1);
+			}
+		}
+		return mapAux;		
+	}
 	
 }

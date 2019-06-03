@@ -16,6 +16,9 @@ public class Siete {
 		
 	}
 	
+	/*
+	 * Devuelve la misma lista de ArrayList pero sin elementos repetidos
+	 */
 	public static ArrayList<String> eliminaDuplicados(List<String> listaCadenaList){
 		
 		Set<String> dupliSet = new HashSet<String>(listaCadenaList);

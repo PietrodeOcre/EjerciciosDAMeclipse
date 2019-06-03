@@ -8,7 +8,7 @@ public class Ocho {
 
 	public static void main(String[] args) {
 		
-		Set<String> listaCadenaStrings = new HashSet<String>(Arrays.asList("MAnuel", "pedro", "Carlos", "miguel", "Carlos jose"));
+		Set<String> listaCadenaStrings = new HashSet<String>(Arrays.asList("Manuel", "pedro", "Carlos", "miguel", "Carlos jose"));
 		
 		System.out.println(maxLength(listaCadenaStrings));
 		
