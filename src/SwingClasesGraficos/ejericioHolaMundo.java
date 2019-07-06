@@ -1,12 +1,14 @@
 package SwingClasesGraficos;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
-import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JButton;
 
-public class ejemploHolaMundo {
+public class ejericioHolaMundo {
 
 	private JFrame frame;
 
@@ -17,7 +19,7 @@ public class ejemploHolaMundo {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ejemploHolaMundo window = new ejemploHolaMundo();
+					ejericioHolaMundo window = new ejericioHolaMundo();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -29,7 +31,7 @@ public class ejemploHolaMundo {
 	/**
 	 * Create the application.
 	 */
-	public ejemploHolaMundo() {
+	public ejericioHolaMundo() {
 		initialize();
 	}
 
@@ -42,17 +44,21 @@ public class ejemploHolaMundo {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnBoton = new JButton("Boton");
-		btnBoton.setBounds(12, 12, 114, 25);
-		frame.getContentPane().add(btnBoton);
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(47, 44, 257, 15);
+		frame.getContentPane().add(lblNewLabel);
 		
 		
-		JLabel lblEstoEsSolo = new JLabel("Esto es solo un texto");
-		lblEstoEsSolo.setBounds(145, 22, 166, 25);
-		frame.getContentPane().add(lblEstoEsSolo);
-	}
-	
-	public void eventoBoton() {
-		
+		JButton btnNewButton = new JButton("Pulsa Aquí");
+		btnNewButton.setBounds(135, 108, 169, 25);
+		btnNewButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				lblNewLabel.setText("Hola mundo!");
+			}
+		});
+		frame.getContentPane().add(btnNewButton);
 	}
 }
