@@ -34,6 +34,12 @@ public class Test1 implements Multi{
        
     }
 
+	@Override
+	public int multiplicar(int p1, int p2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
 
 interface Multi{
