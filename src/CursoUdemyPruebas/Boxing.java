@@ -1,6 +1,5 @@
 package CursoUdemyPruebas;
 
-import com.sun.media.jfxmedia.events.NewFrameEvent;
 
 public class Boxing {
 	
